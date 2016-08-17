@@ -1,7 +1,7 @@
 {
-  "name": "Service-app",
+  "name": "frontend-demos",
   "version": "0.0.1",
-  "description": "",
+  "description": "frontend demos",
   "main": "index.html",
   "scripts": {
     "build": "node_modules/.bin/webpack -d"
@@ -16,6 +16,7 @@
     "anywhere": "1.2.0",
     "css-loader": "0.23.1",
     "ejs-loader": "^0.3.0",
+    "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
@@ -23,6 +24,7 @@
     "mockjs": "1.0.1-beta2",
     "npm-run-all": "1.6.0",
     "raw-loader": "0.5.1",
+    "style-loader": "^0.13.1",
     "webpack": "1.12.14",
     "webpack-dev-server": "1.14.1"
   }

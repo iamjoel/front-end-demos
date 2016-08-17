@@ -4,11 +4,17 @@
   <meta charset="UTF-8">
   <title><%= htmlWebpackPlugin.options.title || 'Webpack App'%></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <% if(htmlWebpackPlugin.options.css && htmlWebpackPlugin.options.css.length > 0){ %>
+  <%= htmlWebpackPlugin.files.css %>
+   <!-- <% for (var css in htmlWebpackPlugin.files.css) { %> -->
+  <link href="<%= htmlWebpackPlugin.files.css[0] %>" rel="stylesheet">
+  <!-- <% } %> -->
+  <!-- <% if(htmlWebpackPlugin.options.css && htmlWebpackPlugin.options.css.length > 0){ %>
     <% for(var i = 0; i < htmlWebpackPlugin.options.css.length; i++){ %>
       <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.css[i] %>">
     <% } %>
-  <% } %>
+  <% } %> -->
+      <!-- <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.css[i] %>"> -->
+
 </head>
 <body>
   <%= htmlWebpackPlugin.options.content %>
