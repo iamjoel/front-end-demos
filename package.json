@@ -6,7 +6,9 @@
   "scripts": {
     "start:develop-server": "node_modules/.bin/webpack-dev-server --inline --hot --host 0.0.0.0 --port 5001",
     "build": "node_modules/.bin/webpack -d",
-    "dev": "node_modules/.bin/npm-run-all --parallel start:develop-server"
+    "dev": "node_modules/.bin/npm-run-all --parallel start:develop-server",
+    "ph-to-gh-pages": "node publish",
+    "publish": "node_modules/.bin/npm-run-all --parallel build ph-to-gh-pages"
   },
   "author": "Joel",
   "license": "MIT",
@@ -20,6 +22,7 @@
     "ejs-loader": "^0.3.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
+    "gh-pages": "^0.11.0",
     "html-loader": "0.4.3",
     "html-webpack-plugin": "2.22.0",
     "json-loader": "0.5.4",
