@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333;
+  font-size: 14px;
+  padding-bottom: 500px;
+}
+
+/*.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}*/
+
+.demo {
+  width: 960px;
+  margin: 5px auto;
+  padding: 5px 0;
+}
+
+.demo>h2 {
+  margin: 10px 0;
+}
+
+.inline-center {
+  text-align: center;
+}
+
+.block-center {
+  /*设置 width + margin-left,marging:right 值为 auto*/
+  width: 200px;
+  margin: 0 auto;
+  height: 40px;
+  background-color: yellow;
+  color: #fff;
+}
+
+.inline-block--center {
+  font-size: 0;
+  text-align: center;
+}
+
+.inline-block__item {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: top;
+  margin-right: 10px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  background-color: yellow;
+  color: #fff;
+  text-align: center;
+}
+
+.inline-block--justify {
+  font-size: 0;
+  text-align: justify;
+}
+
+.inline-block--justify:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.ver-center {
+  height: 50px;
+  line-height: 50px;
+  background-color: yellow;
+  color: #fff;
+}
+
+.back-top{
+	position: fixed;
+	right: 10px;
+	bottom: 100px;
+}
+
+/*# sourceMappingURL=css-layout.css.map*/
