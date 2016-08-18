@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			var chunkId = 2;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -570,119 +570,19 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!************************************!*\
-  !*** ./demos/count-time/loader.js ***!
-  \************************************/
+/*!****************************************!*\
+  !*** ./demos/css-playground/loader.js ***!
+  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 1);
-	__webpack_require__(/*! ./index.js */ 2)
+	__webpack_require__(/*! ./style.css */ 10)
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 12);
+	__webpack_require__(/*! ./index.js */ 13)
+
 
 /***/ },
-/* 1 */
-/*!************************************!*\
-  !*** ./demos/count-time/demo.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"demo-item\">\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\n</div>\n";
-
-/***/ },
-/* 2 */
-/*!***********************************!*\
-  !*** ./demos/count-time/index.js ***!
-  \***********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(/*! jquery */ 3);
-	var CountTime = __webpack_require__(/*! ./count-time.js */ 4);
-	
-	$(document).ready(function() {
-	  var $demos = $('.demo-item');
-	
-	  // 普通用法
-	  (function($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var $toggleBtn = $()
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 10,
-	        minute: 59,
-	        second: 58
-	      }
-	    });
-	
-	    var $controlBtn = $('.control-btn', $wrap);
-	    $controlBtn.click(function() {
-	      if (countTime.isRun()) {
-	        countTime.stop();
-	        $controlBtn.text('开始');
-	      } else {
-	        countTime.start();
-	        $controlBtn.text('运行');
-	      }
-	    });
-	    setInterval(function() {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(0));
-	
-	  // 倒计时
-	  (function($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 1,
-	        minute: 0,
-	        second: 1
-	      },
-	      reverse: true
-	    });
-	    setInterval(function() {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(1));
-	
-	  // 倒计时 结束回调
-	  (function($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 0,
-	        minute: 0,
-	        second: 2
-	      },
-	      reverse: true,
-	      completeFn: function() {
-	        console.log('completed~')
-	      }
-	    });
-	    setInterval(function() {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(2));
-	
-	
-	
-	
-	
-	
-	
-	
-	  function formatTime(timeObj) {
-	    return [fillZero(timeObj.hour), fillZero(timeObj.minute), fillZero(timeObj.second)].join(' : ');
-	  }
-	
-	  function fillZero(num) {
-	    if (num < 10) {
-	      num = '0' + num;
-	    }
-	    return num;
-	  }
-	
-	});
-
-/***/ },
+/* 1 */,
+/* 2 */,
 /* 3 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
@@ -10534,105 +10434,124 @@
 
 
 /***/ },
-/* 4 */
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
 /*!****************************************!*\
-  !*** ./demos/count-time/count-time.js ***!
+  !*** ./demos/css-playground/style.css ***!
   \****************************************/
 /***/ function(module, exports) {
 
-	var defaultOpts = {
-	  init: { // 初始值，只支持到小时。不支持小时以上如：天，月，之类的
-	    hour: 0,
-	    minute: 0,
-	    second: 0
-	  },
-	  reverse: false, // 是正数，还是倒数
-	  completeFn: function(){}, // 倒数结束的回调
-	};
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 11 */,
+/* 12 */
+/*!****************************************!*\
+  !*** ./demos/css-playground/demo.html ***!
+  \****************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<style id=\"target-style\"></style>\n<!-- Inspired by http://css3please.com/ -->\n<div class=\"container\">\n  <h1 class=\"title\">CSS Playground</h1>\n  <div class=\"css\">\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\n    <div class=\"rule\">\n      <span class=\"property\">border</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">5px</span>\n      <input type=\"text\" class=\"editable-value\">\n      </span> solid\n      <span class=\"editable\">\n            <span class=\"editable-text\">#800080</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 边框 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">border-radius</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">15%</span>\n      <input type=\"text\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 圆角 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">background</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">#ff8000</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 背景 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">color</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">#ffffff</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\n    </div>\n    <span class=\"bracket\">}</span>\n  </div>\n</div>\n<div class=\"target\">Taget</div>\n";
+
+/***/ },
+/* 13 */
+/*!***************************************!*\
+  !*** ./demos/css-playground/index.js ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(/*! jquery */ 3);
+	$(document).ready(() => {
+	  // 新增属性,删除属性,值的 autocomplate
+	  var init = () => {
+	    // 输入框同步显示的文本的值
+	    $('.editable-text').each(function () {
+	      var $this = $(this);
+	      var value = $this.text();
+	      // if(tol)
+	      $this.next('.editable-value').val(value);
+	    });
+	    registerEvent();
+	    render();
+	  };
+	  var render = () => {
+	      var $targetStyle = $('#target-style');
+	      var style =
+	      `.target{
+	        ${gatherStyleRules()}
+	      }`;
+	      $targetStyle.html(style);
+	  };
+	  var gatherStyleRules = () => {
+	    var styleArr = [];
+	    $('.rule').each(function() {
+	      var $this = $(this);
+	      var property = $this.find('.property').text();
+	      var value = $this.find('.value')
+	                      .text()
+	                      .replace(/( )+/g, ' ')
+	                      .replace(/\n/g, '') + ';';
+	      styleArr.push(`${property}:${value}`);
+	    });
+	    return styleArr.join('\n');
+	  };
 	
-	function CountTime(options) {
-	  this.options = Object.assign({}, defaultOpts, options);
-	  var opt = this.options;
-	  this.hour = opt.init.hour;
-	  this.minute = opt.init.minute;
-	  this.second = opt.init.second;
-	  this.interval = opt.reverse ? -1 : 1; // 1s
-	  this.runId = false;
-	  this.start();
-	
-	}
-	CountTime.prototype = {
-	  run: function() {
-	    if (this._canRun()) {
-	      this.second = this.second + this.interval;
-	      this._toValidTime();
-	    } else {
-	      this.stop();
-	      this.options.completeFn();
-	    }
-	  },
-	  start: function() {
-	    var self = this;
-	    this.runId = setInterval(function() {
-	      self.run();
-	    }, 1000);
-	  },
-	  stop: function() {
-	    clearInterval(this.runId);
-	    this.runId = false;
-	  },
-	  isRun: function() {
-	    return this.runId !== false ? true : false;
-	  },
-	  isStop: function() {
-	    return this.runId !== false ? false : true;
-	  },
-	  getTime: function() {
-	    return {
-	      hour: this.hour,
-	      minute: this.minute,
-	      second: this.second
-	    }
-	  },
-	  _canRun: function() { // 到倒数时，到0的时候，就结束了
-	    var canRun = true;
-	    if (this.options.reverse) {
-	      if (this.hour === 0 && this.minute === 0 && this.second === 0) {
-	        canRun = false;
+	  var registerEvent = () => {
+	    $('.editable').click(function(){
+	      var $this = $(this);
+	      $(this).addClass('edit');
+	    });
+	    var $editableInput = $('.editable-value');
+	    $editableInput.filter('[type=text]').blur(function () {
+	      $(this).closest('.editable').removeClass('edit');
+	    }).keyup(function (event) {
+	      var $this = $(this);
+	      var $editText = $this.prev('.editable-text');
+	      event.preventDefault();
+	      // 上 或 下
+	      if(event.which === 38 || event.which === 40){
+	          var addNum = event.which === 38 ? 1 : -1;
+	          var vaule = tools.addNumberVal($this.val(), addNum);
+	          $this.val(vaule);
+	          $editText.text(vaule);
+	      } else {
+	        $editText.text($this.val());
 	      }
-	    }
-	    return canRun;
-	  },
-	  _toValidTime: function() {
-	    if (this.second <= -1) {
-	      this.second = 59;
-	      this.minute = this.minute - 1;
-	    } else if (this.second >= 60) {
-	      this.second = 0;
-	      this.minute = this.minute + 1;
-	    }
+	      render();
+	    });
 	
-	    if (this.minute <= -1) {
-	      this.minute = 59;
-	      this.hour = this.hour - 1;
-	    } else if (this.minute >= 60) {
-	      this.minute = 0;
-	      this.hour = this.hour + 1;
+	    $editableInput.filter('[type=color]').change(function () {
+	      var $this = $(this);
+	      var value = $this.val();
+	      var $editText = $this.prev('.editable-text');
+	      $editText.text(value);
+	      render();
+	      $this.closest('.editable').removeClass('edit');
+	    });
+	  };
+	
+	  var tools = {
+	    addNumberVal: (numVal, addVal)=>{
+	      if(!isNaN(numVal)){
+	        return numVal;
+	      }
+	      var num = (numVal + '').indexOf('.') > -1 ? parseFloat(numVal) : parseInt(numVal);
+	      num = num + addVal;
+	      var unit = /[a-zA-Z%]+/.exec(numVal)[0];
+	      return num + unit;
+	
 	    }
+	  };
 	
-	    if (this.hour < 0) {
-	      this.hour = 0;
-	      this.minute = 0;
-	      this.second = 0;
-	    }
-	    // 小时太大就不管啦
-	  }
-	
-	}
-	
-	module.exports = CountTime;
+	  init();
+	});
 
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=count-time.js.map
+//# sourceMappingURL=css-playground.js.map
