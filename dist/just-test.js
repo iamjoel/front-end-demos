@@ -42,14 +42,14 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!**********************************!*\
-  !*** ./demos/just-test/index.js ***!
-  \**********************************/
+/*!***********************************!*\
+  !*** ./demos/just-test/loader.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! ./style.css */ 1);
-	
 	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 6);
+	__webpack_require__(/*! ./index.js */ 7)
 
 /***/ },
 /* 1 */
@@ -80,6 +80,15 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<div>aaa</div><img src=\"" + __webpack_require__(/*! ./npm.png */ 4) + "\">";
+
+/***/ },
+/* 7 */
+/*!**********************************!*\
+  !*** ./demos/just-test/index.js ***!
+  \**********************************/
+/***/ function(module, exports) {
+
+	console.log('hahaha~');
 
 /***/ }
 /******/ ]);

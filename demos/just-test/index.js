@@ -1,3 +1,1 @@
-require('./style.css');
-
-document.querySelector('#main').innerHTML = require('./demo.html');
+console.log('hahaha22454~');

@@ -4,7 +4,9 @@
   "description": "frontend demos",
   "main": "index.html",
   "scripts": {
-    "build": "node_modules/.bin/webpack -d"
+    "start:develop-server": "node_modules/.bin/webpack-dev-server --inline --hot --host 0.0.0.0 --port 5001",
+    "build": "node_modules/.bin/webpack -d",
+    "dev": "node_modules/.bin/npm-run-all --parallel start:develop-server"
   },
   "author": "Joel",
   "license": "MIT",

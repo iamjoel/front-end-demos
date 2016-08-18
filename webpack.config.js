@@ -1,7 +1,10 @@
 var path = require('path');
 var srcPrefix = './demos/';
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var fs = require('fs');
+
 
 var webpackConfig = {
   // devtool: 'eval-source-map',
@@ -24,9 +27,16 @@ var webpackConfig = {
       loader: ExtractTextPlugin.extract("style-loader", "css-loader")
     }]
   },
-  plugins: [new ExtractTextPlugin("[name].css")],
+  plugins: [
+    new ExtractTextPlugin("[name].css"),
+    new webpack.HotModuleReplacementPlugin() // hotreload
+    ],
   resolve: {
     alias: {}
+  },
+  devServer: {// hotreload
+    contentBase: './dist',
+    hot: true
   }
 }
 
@@ -34,26 +44,33 @@ var webpackConfig = {
 读 demos 下第一层目录
 */
 var init = (webpackConfig) => {
-  var eachDemoConfig = addConfig();
-  Object.assign(webpackConfig.entry, eachDemoConfig.entry);
-  webpackConfig.plugins.push(eachDemoConfig.html);
-  // console.log(webpackConfig.plugins);
+  fs.readdirSync('demos').forEach(function(foldName) {
+    var hasCSS = false;
+    try{
+      fs.statSync(`demos/${foldName}/style.css`);
+      hasCSS = true;
+    } catch(e){};
+    var eachDemoConfig = addConfig(foldName, hasCSS);
+    Object.assign(webpackConfig.entry, eachDemoConfig.entry);
+    webpackConfig.plugins.push(eachDemoConfig.html);
+  });
+  // console.log(webpackConfig);
 };
 
-var addConfig = (demoFolderName) => {
-  var name = 'just-test';
+var addConfig = (demoFolderName, hasCSS) => {
   var entry = {};
-  entry[name] = `${srcPrefix}${name}/index.js`;
+  entry[demoFolderName] = `${srcPrefix}${demoFolderName}/loader.js`;
   return {
     entry: entry,
     html: new HtmlWebpackPlugin({
-      filename: `${name}.html`,
-      title: `${name}`,
+      filename: `${demoFolderName}.html`,
+      title: `${demoFolderName}`,
       inject: false,
+      cache: false,
       // For details on `!!` see https://webpack.github.io/docs/loaders.html#loader-order
       template: '!!ejs!templates/normal.html',
-      js: [`${name}.js`],
-      css: [`${name}.css`]
+      js: [`${demoFolderName}.js`],
+      css: hasCSS ? [`${demoFolderName}.css`] : false
     })
   }
 }
