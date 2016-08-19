@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": true
+  },
+  "rules": {
+      "eqeqeq": "off",
+      "curly": "error",
+      "quotes": ["error", "double"]
+  }
+}

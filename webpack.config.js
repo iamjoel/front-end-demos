@@ -16,6 +16,9 @@ var webpackConfig = {
     // publicPath: '/dist' // 用异步加载模块一定要加这个
   },
   module: {
+    preLoaders: [
+      {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules|dist/}
+    ],
     loaders: [{
       test: /\.html$/,
       loader: "html-loader"
@@ -41,6 +44,9 @@ var webpackConfig = {
   devServer: {// hotreload
     contentBase: './dist',
     hot: true
+  },
+  eslint: {
+    configFile: '.eslintrc'
   }
 }
 
