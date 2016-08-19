@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b24e0677d5440999d573"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e92e25641b0b4e1e375e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -575,10 +575,11 @@
   \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(/*! ./style.css */ 10)
+	'use strict';
+	
+	__webpack_require__(/*! ./style.css */ 10);
 	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 12);
-	__webpack_require__(/*! ./index.js */ 13)
-
+	__webpack_require__(/*! ./index.js */ 13);
 
 /***/ },
 /* 1 */,
@@ -10456,7 +10457,7 @@
   \****************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<style id=\"target-style\"></style>\n<!-- Inspired by http://css3please.com/ -->\n<div class=\"container\">\n  <h1 class=\"title\">CSS Playground</h1>\n  <div class=\"css\">\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\n    <div class=\"rule\">\n      <span class=\"property\">border</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">5px</span>\n      <input type=\"text\" class=\"editable-value\">\n      </span> solid\n      <span class=\"editable\">\n            <span class=\"editable-text\">#800080</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 边框 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">border-radius</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">15%</span>\n      <input type=\"text\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 圆角 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">background</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">#ff8000</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 背景 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">color</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">#ffffff</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\n    </div>\n    <span class=\"bracket\">}</span>\n  </div>\n</div>\n<div class=\"target\">Taget</div>\n";
+	module.exports = "<style id=\"target-style\"></style>\r\n<!-- Inspired by http://css3please.com/ -->\r\n<div class=\"container\">\r\n  <h1 class=\"title\">CSS Playground</h1>\r\n  <div class=\"css\">\r\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">5px</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span> solid\r\n      <span class=\"editable\">\r\n            <span class=\"editable-text\">#800080</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 边框 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border-radius</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">15%</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 圆角 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">background</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ff8000</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 背景 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">color</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ffffff</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\r\n    </div>\r\n    <span class=\"bracket\">}</span>\r\n  </div>\r\n</div>\r\n<div class=\"target\">Taget</div>\r\n";
 
 /***/ },
 /* 13 */
@@ -10465,10 +10466,12 @@
   \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	var $ = __webpack_require__(/*! jquery */ 3);
-	$(document).ready(() => {
+	$(document).ready(function () {
 	  // 新增属性,删除属性,值的 autocomplate
-	  var init = () => {
+	  var init = function init() {
 	    // 输入框同步显示的文本的值
 	    $('.editable-text').each(function () {
 	      var $this = $(this);
@@ -10479,30 +10482,24 @@
 	    registerEvent();
 	    render();
 	  };
-	  var render = () => {
-	      var $targetStyle = $('#target-style');
-	      var style =
-	      `.target{
-	        ${gatherStyleRules()}
-	      }`;
-	      $targetStyle.html(style);
+	  var render = function render() {
+	    var $targetStyle = $('#target-style');
+	    var style = '.target{\n        ' + gatherStyleRules() + '\n      }';
+	    $targetStyle.html(style);
 	  };
-	  var gatherStyleRules = () => {
+	  var gatherStyleRules = function gatherStyleRules() {
 	    var styleArr = [];
-	    $('.rule').each(function() {
+	    $('.rule').each(function () {
 	      var $this = $(this);
 	      var property = $this.find('.property').text();
-	      var value = $this.find('.value')
-	                      .text()
-	                      .replace(/( )+/g, ' ')
-	                      .replace(/\n/g, '') + ';';
-	      styleArr.push(`${property}:${value}`);
+	      var value = $this.find('.value').text().replace(/( )+/g, ' ').replace(/\n/g, '') + ';';
+	      styleArr.push(property + ':' + value);
 	    });
 	    return styleArr.join('\n');
 	  };
 	
-	  var registerEvent = () => {
-	    $('.editable').click(function(){
+	  var registerEvent = function registerEvent() {
+	    $('.editable').click(function () {
 	      var $this = $(this);
 	      $(this).addClass('edit');
 	    });
@@ -10514,11 +10511,11 @@
 	      var $editText = $this.prev('.editable-text');
 	      event.preventDefault();
 	      // 上 或 下
-	      if(event.which === 38 || event.which === 40){
-	          var addNum = event.which === 38 ? 1 : -1;
-	          var vaule = tools.addNumberVal($this.val(), addNum);
-	          $this.val(vaule);
-	          $editText.text(vaule);
+	      if (event.which === 38 || event.which === 40) {
+	        var addNum = event.which === 38 ? 1 : -1;
+	        var vaule = tools.addNumberVal($this.val(), addNum);
+	        $this.val(vaule);
+	        $editText.text(vaule);
 	      } else {
 	        $editText.text($this.val());
 	      }
@@ -10536,21 +10533,19 @@
 	  };
 	
 	  var tools = {
-	    addNumberVal: (numVal, addVal)=>{
-	      if(!isNaN(numVal)){
+	    addNumberVal: function addNumberVal(numVal, addVal) {
+	      if (!isNaN(numVal)) {
 	        return numVal;
 	      }
 	      var num = (numVal + '').indexOf('.') > -1 ? parseFloat(numVal) : parseInt(numVal);
 	      num = num + addVal;
 	      var unit = /[a-zA-Z%]+/.exec(numVal)[0];
 	      return num + unit;
-	
 	    }
 	  };
 	
 	  init();
 	});
-
 
 /***/ }
 /******/ ]);

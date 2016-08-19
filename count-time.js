@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b24e0677d5440999d573"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e92e25641b0b4e1e375e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -575,8 +575,10 @@
   \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 1);
-	__webpack_require__(/*! ./index.js */ 2)
+	__webpack_require__(/*! ./index.js */ 2);
 
 /***/ },
 /* 1 */
@@ -585,7 +587,7 @@
   \************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"demo-item\">\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\n</div>\n";
+	module.exports = "<div class=\"demo-item\">\r\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\r\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\r\n</div>\r\n";
 
 /***/ },
 /* 2 */
@@ -594,16 +596,18 @@
   \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	var $ = __webpack_require__(/*! jquery */ 3);
 	var CountTime = __webpack_require__(/*! ./count-time.js */ 4);
 	
-	$(document).ready(function() {
+	$(document).ready(function () {
 	  var $demos = $('.demo-item');
 	
 	  // 普通用法
-	  (function($wrap) {
+	  (function ($wrap) {
 	    var $countTime = $('.count-time', $wrap);
-	    var $toggleBtn = $()
+	    var $toggleBtn = $();
 	    var countTime = new CountTime({
 	      init: {
 	        hour: 10,
@@ -613,7 +617,7 @@
 	    });
 	
 	    var $controlBtn = $('.control-btn', $wrap);
-	    $controlBtn.click(function() {
+	    $controlBtn.click(function () {
 	      if (countTime.isRun()) {
 	        countTime.stop();
 	        $controlBtn.text('开始');
@@ -622,13 +626,13 @@
 	        $controlBtn.text('运行');
 	      }
 	    });
-	    setInterval(function() {
+	    setInterval(function () {
 	      $countTime.text(formatTime(countTime.getTime()));
 	    }, 500);
 	  })($demos.eq(0));
 	
 	  // 倒计时
-	  (function($wrap) {
+	  (function ($wrap) {
 	    var $countTime = $('.count-time', $wrap);
 	    var countTime = new CountTime({
 	      init: {
@@ -638,13 +642,13 @@
 	      },
 	      reverse: true
 	    });
-	    setInterval(function() {
+	    setInterval(function () {
 	      $countTime.text(formatTime(countTime.getTime()));
 	    }, 500);
 	  })($demos.eq(1));
 	
 	  // 倒计时 结束回调
-	  (function($wrap) {
+	  (function ($wrap) {
 	    var $countTime = $('.count-time', $wrap);
 	    var countTime = new CountTime({
 	      init: {
@@ -653,21 +657,14 @@
 	        second: 2
 	      },
 	      reverse: true,
-	      completeFn: function() {
-	        console.log('completed~')
+	      completeFn: function completeFn() {
+	        console.log('completed~');
 	      }
 	    });
-	    setInterval(function() {
+	    setInterval(function () {
 	      $countTime.text(formatTime(countTime.getTime()));
 	    }, 500);
 	  })($demos.eq(2));
-	
-	
-	
-	
-	
-	
-	
 	
 	  function formatTime(timeObj) {
 	    return [fillZero(timeObj.hour), fillZero(timeObj.minute), fillZero(timeObj.second)].join(' : ');
@@ -679,7 +676,6 @@
 	    }
 	    return num;
 	  }
-	
 	});
 
 /***/ },
@@ -10540,6 +10536,8 @@
   \****************************************/
 /***/ function(module, exports) {
 
+	"use strict";
+	
 	var defaultOpts = {
 	  init: { // 初始值，只支持到小时。不支持小时以上如：天，月，之类的
 	    hour: 0,
@@ -10547,8 +10545,7 @@
 	    second: 0
 	  },
 	  reverse: false, // 是正数，还是倒数
-	  completeFn: function(){}, // 倒数结束的回调
-	};
+	  completeFn: function completeFn() {} };
 	
 	function CountTime(options) {
 	  this.options = Object.assign({}, defaultOpts, options);
@@ -10559,10 +10556,9 @@
 	  this.interval = opt.reverse ? -1 : 1; // 1s
 	  this.runId = false;
 	  this.start();
-	
 	}
 	CountTime.prototype = {
-	  run: function() {
+	  run: function run() {
 	    if (this._canRun()) {
 	      this.second = this.second + this.interval;
 	      this._toValidTime();
@@ -10571,30 +10567,31 @@
 	      this.options.completeFn();
 	    }
 	  },
-	  start: function() {
+	  start: function start() {
 	    var self = this;
-	    this.runId = setInterval(function() {
+	    this.runId = setInterval(function () {
 	      self.run();
 	    }, 1000);
 	  },
-	  stop: function() {
+	  stop: function stop() {
 	    clearInterval(this.runId);
 	    this.runId = false;
 	  },
-	  isRun: function() {
+	  isRun: function isRun() {
 	    return this.runId !== false ? true : false;
 	  },
-	  isStop: function() {
+	  isStop: function isStop() {
 	    return this.runId !== false ? false : true;
 	  },
-	  getTime: function() {
+	  getTime: function getTime() {
 	    return {
 	      hour: this.hour,
 	      minute: this.minute,
 	      second: this.second
-	    }
+	    };
 	  },
-	  _canRun: function() { // 到倒数时，到0的时候，就结束了
+	  _canRun: function _canRun() {
+	    // 到倒数时，到0的时候，就结束了
 	    var canRun = true;
 	    if (this.options.reverse) {
 	      if (this.hour === 0 && this.minute === 0 && this.second === 0) {
@@ -10603,7 +10600,7 @@
 	    }
 	    return canRun;
 	  },
-	  _toValidTime: function() {
+	  _toValidTime: function _toValidTime() {
 	    if (this.second <= -1) {
 	      this.second = 59;
 	      this.minute = this.minute - 1;
@@ -10628,10 +10625,9 @@
 	    // 小时太大就不管啦
 	  }
 	
-	}
+	};
 	
 	module.exports = CountTime;
-
 
 /***/ }
 /******/ ]);

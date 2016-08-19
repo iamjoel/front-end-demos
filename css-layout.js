@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b24e0677d5440999d573"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e92e25641b0b4e1e375e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -576,9 +576,10 @@
   \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	
 	__webpack_require__(/*! ./style.css */ 5);
 	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 9);
-
 
 /***/ },
 
@@ -598,7 +599,7 @@
   \************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<a name=\"top\">\n</a>\n<div class=\"demo\">\n  <h2>行内元素</h2>\n  <div>\n    <span>span</span> <a href=\"###\">链接</a>\n    <label>label</label>\n    <input type=\"text\">\n  </div>\n  <h2>块级元素</h2>\n  <p>段落</p>\n  <div>div</div>\n  <ul>\n    <li>item1</li>\n    <li>item2</li>\n  </ul>\n</div>\n<div class=\"demo\">\n  <h2>行内元素的水平居中</h2>\n  <!-- 在父元素生设置 text-align: center; -->\n  <div class=\"inline-center\">哈哈<strong style=\"margin-left:100px;\">!</strong></div>\n</div>\n<div class=\"demo\">\n  <h2>元素的水平居中</h2>\n  <div class=\"block-center\"></div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素水平居中</h2>\n  <div class=\"inline-block--center\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素两端对齐</h2>\n  <div class=\"inline-block--justify\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>单行文本的垂直居中</h2>\n  <div class=\"ver-center\">这是一行文本</div>\n</div>\n<div class=\"demo\">\n  <h2>固定在页面的某个位子，见右下方的返回顶部</h2>\n  <a href=\"#top\" class=\"back-top\">返回顶部</a>\n</div>\n";
+	module.exports = "<a name=\"top\">\r\n</a>\r\n<div class=\"demo\">\r\n  <h2>行内元素</h2>\r\n  <div>\r\n    <span>span</span> <a href=\"###\">链接</a>\r\n    <label>label</label>\r\n    <input type=\"text\">\r\n  </div>\r\n  <h2>块级元素</h2>\r\n  <p>段落</p>\r\n  <div>div</div>\r\n  <ul>\r\n    <li>item1</li>\r\n    <li>item2</li>\r\n  </ul>\r\n</div>\r\n<div class=\"demo\">\r\n  <h2>行内元素的水平居中</h2>\r\n  <!-- 在父元素生设置 text-align: center; -->\r\n  <div class=\"inline-center\">哈哈<strong style=\"margin-left:100px;\">!</strong></div>\r\n</div>\r\n<div class=\"demo\">\r\n  <h2>元素的水平居中</h2>\r\n  <div class=\"block-center\"></div>\r\n</div>\r\n<div class=\"demo\">\r\n  <h2>多个块级元素水平居中</h2>\r\n  <div class=\"inline-block--center\">\r\n    <div class=\"inline-block__item\">1</div>\r\n    <div class=\"inline-block__item\">2</div>\r\n    <div class=\"inline-block__item\">3</div>\r\n    <div class=\"inline-block__item\">4</div>\r\n  </div>\r\n</div>\r\n<div class=\"demo\">\r\n  <h2>多个块级元素两端对齐</h2>\r\n  <div class=\"inline-block--justify\">\r\n    <div class=\"inline-block__item\">1</div>\r\n    <div class=\"inline-block__item\">2</div>\r\n    <div class=\"inline-block__item\">3</div>\r\n    <div class=\"inline-block__item\">4</div>\r\n  </div>\r\n</div>\r\n<div class=\"demo\">\r\n  <h2>单行文本的垂直居中</h2>\r\n  <div class=\"ver-center\">这是一行文本</div>\r\n</div>\r\n<div class=\"demo\">\r\n  <h2>固定在页面的某个位子，见右下方的返回顶部</h2>\r\n  <a href=\"#top\" class=\"back-top\">返回顶部</a>\r\n</div>\r\n";
 
 /***/ }
 

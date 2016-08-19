@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 5;
+/******/ 			var chunkId = 3;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -571,26 +571,29 @@
 /******/ ({
 
 /***/ 0:
-/*!*******************************!*\
-  !*** ./demos/index/loader.js ***!
-  \*******************************/
+/*!**********************************!*\
+  !*** ./demos/es6-test/loader.js ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 17);
+	__webpack_require__(/*! ./index.js */ 14);
 
 /***/ },
 
-/***/ 17:
-/*!*******************************!*\
-  !*** ./demos/index/demo.html ***!
-  \*******************************/
+/***/ 14:
+/*!*********************************!*\
+  !*** ./demos/es6-test/index.js ***!
+  \*********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Demo 导航</h1>\r\n<ul>\r\n  <li><a href=\"html-tag-and-attr.html\" target=\"_blank\">HTML常见标签和属性</a></li>\r\n  <li><a href=\"css-layout.html\" target=\"_blank\">CSS 布局</a></li>\r\n  <li><a href=\"css-playground.html\" target=\"_blank\">CSS 属性在线体验</a></li>\r\n  <li><a href=\"count-time.html\" target=\"_blank\">倒计时</a></li>\r\n</ul>";
+	'use strict';
+	
+	var name = 'Joel';
+	var templateStr = 'Hello I\'m ' + name;
 
 /***/ }
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=es6-test.js.map
