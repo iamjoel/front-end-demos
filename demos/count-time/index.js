@@ -7,7 +7,6 @@ $(document).ready(function() {
   // 普通用法
   (function($wrap) {
     var $countTime = $('.count-time', $wrap);
-    var $toggleBtn = $()
     var countTime = new CountTime({
       init: {
         hour: 10,
