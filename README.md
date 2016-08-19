@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="demo.css">
 </head>
 <body>
-  主题内容
+  主体内容
   <script src="index.js"></script>
 </body>
 </html>
@@ -20,7 +20,7 @@
 现在，在本项目中只需这么写:  
 demo.html
 ```
-主题内容
+主体内容
 ```
 
 loader.js
