@@ -9,7 +9,11 @@
   },
   "rules": {
       "indent": ["error", 2],
+      "no-mixed-spaces-and-tabs": "error",
+      "camelcase": "error",
+      "no-cond-assign": "error",
       "eqeqeq": "warn",
+      "max-params": ["warn", 3],
       "curly": "error",
       "no-empty": "error",
       "no-unreachable": "error",
@@ -19,9 +23,6 @@
       "no-with": "error",
       "no-undef": "error",
       "no-unused-vars": "warn",
-      "brace-style": "error",
-      "camelcase": "error",
-      "max-params": "warn",
-      "no-mixed-spaces-and-tabs": "error"
+      "brace-style": "error"
   }
 }
