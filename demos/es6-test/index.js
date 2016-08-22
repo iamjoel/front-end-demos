@@ -1,4 +1,3 @@
-let name = 'Joel';
-let templateStr = `Hello I'm ${name}`;
-console.log(templateStr);
-
+let name = 'Joel'
+let templateStr = `Hello I'm ${name}`
+console.log(templateStr)

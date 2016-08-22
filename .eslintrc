@@ -1,28 +1,6 @@
 {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6
-  },
+  "extends": "standard",
   "rules": {
-      "indent": ["error", 2],
-      "no-mixed-spaces-and-tabs": "error",
-      "camelcase": "error",
-      "no-cond-assign": "error",
-      "eqeqeq": "warn",
-      "max-params": ["warn", 3],
-      "curly": "error",
-      "no-empty": "error",
-      "no-unreachable": "error",
-      "no-labels": "error",
-      "no-loop-func": "error",
-      "no-unused-expressions": "error",
-      "no-with": "error",
-      "no-undef": "error",
-      "no-unused-vars": "warn",
-      "brace-style": "error"
+      "max-params": ["warn", 3]
   }
 }

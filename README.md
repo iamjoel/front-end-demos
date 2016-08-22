@@ -1,4 +1,6 @@
 # 前端 Demos
+[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 存放前端的 Demos。
 
 得益于 webpack 及 HtmlWebpackPlugin 等插件，在本项目中写 Demo，可避免写一些重复的代码。如以前这么写 Demo

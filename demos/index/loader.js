@@ -1,1 +1,1 @@
-document.querySelector('#main').innerHTML = require('./demo.html');
+document.querySelector('#main').innerHTML = require('./demo.html')

@@ -5,87 +5,86 @@ var defaultOpts = {
     second: 0
   },
   reverse: false, // 是正数，还是倒数
-  completeFn: function(){}, // 倒数结束的回调
-};
+  completeFn: function () {} // 倒数结束的回调
+}
 
-function CountTime(options) {
-  this.options = Object.assign({}, defaultOpts, options);
-  var opt = this.options;
-  this.hour = opt.init.hour;
-  this.minute = opt.init.minute;
-  this.second = opt.init.second;
-  this.interval = opt.reverse ? -1 : 1; // 1s
-  this.runId = false;
-  this.start();
-
+function CountTime (options) {
+  this.options = Object.assign({}, defaultOpts, options)
+  var opt = this.options
+  this.hour = opt.init.hour
+  this.minute = opt.init.minute
+  this.second = opt.init.second
+  this.interval = opt.reverse ? -1 : 1 // 1s
+  this.runId = false
+  this.start()
 }
 CountTime.prototype = {
-  run: function() {
+  run: function () {
     if (this._canRun()) {
-      this.second = this.second + this.interval;
-      this._toValidTime();
+      this.second = this.second + this.interval
+      this._toValidTime()
     } else {
-      this.stop();
-      this.options.completeFn();
+      this.stop()
+      this.options.completeFn()
     }
   },
-  start: function() {
-    var self = this;
-    this.runId = setInterval(function() {
-      self.run();
-    }, 1000);
+  start: function () {
+    var self = this
+    this.runId = setInterval(function () {
+      self.run()
+    }, 1000)
   },
-  stop: function() {
-    clearInterval(this.runId);
-    this.runId = false;
+  stop: function () {
+    clearInterval(this.runId)
+    this.runId = false
   },
-  isRun: function() {
-    return this.runId !== false ? true : false;
+  isRun: function () {
+    return this.runId !== false
   },
-  isStop: function() {
-    return this.runId !== false ? false : true;
+  isStop: function () {
+    return this.runId === false
   },
-  getTime: function() {
+  getTime: function () {
     return {
       hour: this.hour,
       minute: this.minute,
       second: this.second
     }
   },
-  _canRun: function() { // 到倒数时，到0的时候，就结束了
-    var canRun = true;
+  _canRun: function () { // 到倒数时，到0的时候，就结束了
+    var canRun = true
     if (this.options.reverse) {
       if (this.hour === 0 && this.minute === 0 && this.second === 0) {
-        canRun = false;
+        canRun = false
       }
     }
-    return canRun;
+    return canRun
   },
-  _toValidTime: function() {
+  _toValidTime: function () {
     if (this.second <= -1) {
-      this.second = 59;
-      this.minute = this.minute - 1;
+      this.second = 59
+      this.minute = this.minute - 1
     } else if (this.second >= 60) {
-      this.second = 0;
-      this.minute = this.minute + 1;
+      this.second = 0
+      this.minute = this.minute + 1
     }
 
     if (this.minute <= -1) {
-      this.minute = 59;
-      this.hour = this.hour - 1;
+      this.minute = 59
+      this.hour = this.hour - 1
     } else if (this.minute >= 60) {
-      this.minute = 0;
-      this.hour = this.hour + 1;
+      this.minute = 0
+      this.hour = this.hour + 1
     }
 
     if (this.hour < 0) {
-      this.hour = 0;
-      this.minute = 0;
-      this.second = 0;
+      this.hour = 0
+      this.minute = 0
+      this.second = 0
     }
     // 小时太大就不管啦
   }
 
 }
 
-module.exports = CountTime;
+module.exports = CountTime
