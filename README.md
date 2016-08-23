@@ -51,3 +51,7 @@ require('./index.js');
 * `npm run publish` Demos 写好时使用。会构建生成目标代码，并发布到项目的 gh-pages 分支。
 * 更多命令见 `package.json` 中的 `script`。
 
+## 代码风格
+本项目的 JavaScript 的代码风格用的是 [JavaScript Standard Style](http://standardjs.com/index.html)。
+
+Sublime 上有对应的格式化插件 [Standard Format](https://packagecontrol.io/packages/StandardFormat)。
