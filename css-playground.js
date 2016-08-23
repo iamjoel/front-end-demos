@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e92e25641b0b4e1e375e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "37d33362a5c52e4950e5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -10492,7 +10492,7 @@
 	    $('.rule').each(function () {
 	      var $this = $(this);
 	      var property = $this.find('.property').text();
-	      var value = $this.find('.value').text().replace(/( )+/g, ' ').replace(/\n/g, '') + ';';
+	      var value = $this.find('.value').text().replace(/( )+/g, ' ').replace(/\n/g, '') + '';
 	      styleArr.push(property + ':' + value);
 	    });
 	    return styleArr.join('\n');
@@ -10501,7 +10501,7 @@
 	  var registerEvent = function registerEvent() {
 	    $('.editable').click(function () {
 	      var $this = $(this);
-	      $(this).addClass('edit');
+	      $this.addClass('edit');
 	    });
 	    var $editableInput = $('.editable-value');
 	    $editableInput.filter('[type=text]').blur(function () {

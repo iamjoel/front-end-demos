@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 5;
+/******/ 			var chunkId = 6;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -571,26 +571,114 @@
 /******/ ({
 
 /***/ 0:
-/*!*******************************!*\
-  !*** ./demos/index/loader.js ***!
-  \*******************************/
+/*!*********************************!*\
+  !*** ./demos/promise/loader.js ***!
+  \*********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 17);
+	__webpack_require__(/*! ./index.js */ 18);
+	// require('./jquery-deferred.js')
 
 /***/ },
 
-/***/ 17:
-/*!*******************************!*\
-  !*** ./demos/index/demo.html ***!
-  \*******************************/
+/***/ 18:
+/*!********************************!*\
+  !*** ./demos/promise/index.js ***!
+  \********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Demo 导航</h1>\r\n<ul>\r\n  <li><a href=\"html-tag-and-attr.html\" target=\"_blank\">HTML常见标签和属性</a></li>\r\n  <li><a href=\"css-layout.html\" target=\"_blank\">CSS 布局</a></li>\r\n  <li><a href=\"css-playground.html\" target=\"_blank\">CSS 属性在线体验</a></li>\r\n  <li><a href=\"count-time.html\" target=\"_blank\">倒计时</a></li>\r\n  <li><a href=\"promise.html\" target=\"_blank\">Promise</a></li>\r\n</ul>";
+	'use strict';
+	
+	function doThingGenerator(params) {
+	  var defaultParams = {
+	    aysn: true,
+	    successVal: '',
+	    failVal: '',
+	    isSuccess: true,
+	    useTime: 100
+	  };
+	
+	  params = Object.assign(defaultParams, params);
+	  return function () {
+	    return new Promise(function (resolve, reject) {
+	      if (params.aysn) {
+	        setTimeout(function () {
+	          if (params.isSuccess) {
+	            console.log('almost ' + params.successVal);
+	            resolve(params.successVal);
+	          } else {
+	            reject(params.failVal);
+	          }
+	        }, params.useTime);
+	      } else {
+	        if (params.isSuccess) {
+	          console.log('almost ' + params.successVal);
+	          resolve(params.successVal);
+	        } else {
+	          reject(params.failVal);
+	        }
+	      }
+	    });
+	  };
+	}
+	var doThing1 = doThingGenerator({
+	  successVal: 'thing1 done'
+	});
+	
+	var doThing2 = doThingGenerator({
+	  successVal: 'thing2 done',
+	  useTime: 200
+	});
+	
+	var doThing3 = doThingGenerator({
+	  successVal: 'thing3 done',
+	  useTime: 50
+	});
+	
+	doThing1().then(function (msg) {
+	  console.log(msg);
+	  return doThing2();
+	}).then(function (msg) {
+	  console.log(msg);
+	  return doThing3();
+	}).then(function (msg) {
+	  console.log(msg);
+	  console.log('***** 串行结束 ********');
+	
+	  Promise.all([doThing1(), doThing2(), doThing3()]).then(function (msgs) {
+	    console.log(msgs.join());
+	    console.log('***** 并行结束 ********');
+	
+	    var doThing1Fail = doThingGenerator({
+	      isSuccess: false,
+	      failVal: 'thing1 fail'
+	    });
+	    doThing1Fail().catch(function (msg) {
+	      console.log('catch fail: ' + msg);
+	      doThing1Fail().then(null, function () {
+	        console.log('catch fail in then: ' + msg);
+	        console.log('***** 失败处理结束 ********');
+	        var doThing1Sync = doThingGenerator({
+	          aysn: false,
+	          successVal: 'sync thing1 done'
+	        });
+	        var doThing2Sync = doThingGenerator({
+	          aysn: false,
+	          successVal: 'sync thing2 done'
+	        });
+	
+	        doThing1Sync().then(doThing2Sync).then(function (msg) {
+	          console.log(msg);
+	          console.log('***** Promise 同步结束 ********');
+	        });
+	      });
+	    });
+	  });
+	});
 
 /***/ }
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=promise.js.map

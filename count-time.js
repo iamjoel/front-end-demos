@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e92e25641b0b4e1e375e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "37d33362a5c52e4950e5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -602,12 +602,11 @@
 	var CountTime = __webpack_require__(/*! ./count-time.js */ 4);
 	
 	$(document).ready(function () {
-	  var $demos = $('.demo-item');
+	  var $demos = $('.demo-item')
 	
 	  // 普通用法
-	  (function ($wrap) {
+	  ;(function ($wrap) {
 	    var $countTime = $('.count-time', $wrap);
-	    var $toggleBtn = $();
 	    var countTime = new CountTime({
 	      init: {
 	        hour: 10,
@@ -629,10 +628,10 @@
 	    setInterval(function () {
 	      $countTime.text(formatTime(countTime.getTime()));
 	    }, 500);
-	  })($demos.eq(0));
+	  })($demos.eq(0))
 	
 	  // 倒计时
-	  (function ($wrap) {
+	  ;(function ($wrap) {
 	    var $countTime = $('.count-time', $wrap);
 	    var countTime = new CountTime({
 	      init: {
@@ -645,10 +644,10 @@
 	    setInterval(function () {
 	      $countTime.text(formatTime(countTime.getTime()));
 	    }, 500);
-	  })($demos.eq(1));
+	  })($demos.eq(1))
 	
 	  // 倒计时 结束回调
-	  (function ($wrap) {
+	  ;(function ($wrap) {
 	    var $countTime = $('.count-time', $wrap);
 	    var countTime = new CountTime({
 	      init: {
@@ -10545,7 +10544,8 @@
 	    second: 0
 	  },
 	  reverse: false, // 是正数，还是倒数
-	  completeFn: function completeFn() {} };
+	  completeFn: function completeFn() {} // 倒数结束的回调
+	};
 	
 	function CountTime(options) {
 	  this.options = Object.assign({}, defaultOpts, options);
@@ -10578,10 +10578,10 @@
 	    this.runId = false;
 	  },
 	  isRun: function isRun() {
-	    return this.runId !== false ? true : false;
+	    return this.runId !== false;
 	  },
 	  isStop: function isStop() {
-	    return this.runId !== false ? false : true;
+	    return this.runId === false;
 	  },
 	  getTime: function getTime() {
 	    return {
