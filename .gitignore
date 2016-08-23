@@ -39,4 +39,11 @@ jspm_packages
 # build data
 dist
 
+## sass cache
+.sass-cache
+
+## source map
+*.map
+
+
 

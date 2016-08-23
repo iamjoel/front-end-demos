@@ -1,30 +1,41 @@
 body {
   margin: 0;
   background-color: #0c1021;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
 .container {
   width: 1000px;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 .title {
-  color: #fff; }
+  color: #fff;
+}
 
+$font-monospace: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 .css {
-  font: 14px/20px Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  color: #fff; }
+  font: 14px/20px $font-monospace;
+  color: #fff;
+}
 
 .selector {
-  color: #ff6400; }
+  color: #ff6400;
+}
+
+.bracket {}
 
 .rule {
-  text-indent: 2em; }
+  text-indent: 2em;
+}
 
 .property {
-  color: #8da6ce; }
+  color: #8da6ce;
+}
 
 .value {
-  color: #61ce3c; }
+  color: #61ce3c;
+}
 
 .editable {
   position: relative;
@@ -32,22 +43,26 @@ body {
   font-size: 0;
   color: #d8fa3c;
   border-bottom: 1px dotted #808080;
-  padding-bottom: 1px; }
+  padding-bottom: 1px;
+}
 
-.comment {
+.comment{
   margin-left: 10px;
-  color: rgba(0, 136, 255, 0.3); }
+  color: rgba(0,136,255,.3);
+}
 
 .editable .editable-text,
 .editable .editable-value {
-  font-size: 14px; }
+  font-size: 14px;
+}
 
 .editable .editable-value {
-  display: none; }
+  display: none;
+}
 
-.editable.edit .editable-text {
-  visibility: hidden; }
-
+.editable.edit .editable-text{
+  visibility: hidden;
+}
 .editable.edit .editable-value {
   position: absolute;
   display: inline;
@@ -58,11 +73,12 @@ body {
   min-width: 2em;
   outline: 0;
   padding: 0;
-  width: 200%; }
-
-.editable.edit .editable-value[type=color] {
-  width: 58px;
-  left: -2px; }
+  width: 200%;
+}
+.editable.edit .editable-value[type=color]{
+    width: 58px;
+    left: -2px;
+}
 
 .target {
   position: fixed;
@@ -74,6 +90,5 @@ body {
   font-size: 20px;
   text-align: center;
   background-color: #fff;
-  transition: all .5s ease-in-out; }
-
-/*# sourceMappingURL=style.css.map */
+  transition: all .5s ease-in-out;
+}
