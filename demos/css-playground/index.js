@@ -15,7 +15,7 @@ $(document).ready(() => {
   var render = () => {
     var $targetStyle = $('#target-style')
     var style =
-      `.target{
+    `.target{
         ${gatherStyleRules()}
       }`
     $targetStyle.html(style)
@@ -26,10 +26,10 @@ $(document).ready(() => {
       var $this = $(this)
       var property = $this.find('.property').text()
       var value = $this.find('.value')
-        .text()
-        .replace(/( )+/g, ' ')
-        .replace(/\n/g, '') + ''
-      styleArr.push(`${property}:${value}`)
+          .text()
+          .replace(/( )+/g, ' ')
+          .replace(/\n/g, '') + ''
+      styleArr.push(`${property}:${value};`)
     })
     return styleArr.join('\n')
   }
