@@ -6,10 +6,19 @@ $('.dot').each(function () {
 moveWithAnim($('.target'), moveArr, 5000)
 
 function moveWithAnim ($el, posArr, time) {
-  move($el, posArr, 0, time / posArr.length)
+  move({
+    $el: $el,
+    posArr: posArr,
+    i: 0,
+    pos: time / posArr.length
+  })
 }
 
-function move ($el, posArr, i, time) {
+function move (opts) {
+  var $el = opts.$el
+  var posArr = opts.posArr
+  var i = opts.i
+  var time = opts.time
   var pos = posArr[i]
   $el.animate({
     left: pos.left,

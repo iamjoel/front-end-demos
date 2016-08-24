@@ -1,6 +1,7 @@
 {
   "extends": "standard",
   "rules": {
-      "max-params": ["warn", 3]
+    "no-new": "off",
+    "max-params": ["warn", 3]
   }
 }
