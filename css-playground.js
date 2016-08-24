@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "47a3a5f95b5952c3ef46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 2;
+/******/ 			var chunkId = 5;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -568,8 +568,9 @@
 /******/ 	return hotCreateRequire(0)(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /*!****************************************!*\
   !*** ./demos/css-playground/loader.js ***!
   \****************************************/
@@ -577,14 +578,13 @@
 
 	'use strict';
 	
-	__webpack_require__(/*! ./style.css */ 10);
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 12);
-	__webpack_require__(/*! ./index.js */ 13);
+	__webpack_require__(/*! ./style.css */ 16);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 18);
+	__webpack_require__(/*! ./index.js */ 19);
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+
+/***/ 3:
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10435,13 +10435,8 @@
 
 
 /***/ },
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+
+/***/ 16:
 /*!****************************************!*\
   !*** ./demos/css-playground/style.css ***!
   \****************************************/
@@ -10450,17 +10445,18 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 11 */,
-/* 12 */
+
+/***/ 18:
 /*!****************************************!*\
   !*** ./demos/css-playground/demo.html ***!
   \****************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<style id=\"target-style\"></style>\r\n<!-- Inspired by http://css3please.com/ -->\r\n<div class=\"container\">\r\n  <h1 class=\"title\">CSS Playground</h1>\r\n  <div class=\"css\">\r\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">5px</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span> solid\r\n      <span class=\"editable\">\r\n            <span class=\"editable-text\">#800080</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 边框 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border-radius</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">15%</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 圆角 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">background</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ff8000</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 背景 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">color</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ffffff</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\r\n    </div>\r\n    <span class=\"bracket\">}</span>\r\n  </div>\r\n</div>\r\n<div class=\"target\">Taget</div>\r\n";
+	module.exports = "<style id=\"target-style\"></style>\n<!-- Inspired by http://css3please.com/ -->\n<div class=\"container\">\n  <h1 class=\"title\">CSS Playground</h1>\n  <div class=\"css\">\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\n    <div class=\"rule\">\n      <span class=\"property\">border</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">5px</span>\n      <input type=\"text\" class=\"editable-value\">\n      </span> solid\n      <span class=\"editable\">\n            <span class=\"editable-text\">#800080</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 边框 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">border-radius</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">15%</span>\n      <input type=\"text\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 圆角 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">background</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">#ff8000</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 背景 */</span>\n    </div>\n    <div class=\"rule\">\n      <span class=\"property\">color</span>:\n      <span class=\"value\">\n          <span class=\"editable\">\n            <span class=\"editable-text\">#ffffff</span>\n      <input type=\"color\" class=\"editable-value\">\n      </span>\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\n    </div>\n    <span class=\"bracket\">}</span>\n  </div>\n</div>\n<div class=\"target\">Taget</div>\n";
 
 /***/ },
-/* 13 */
+
+/***/ 19:
 /*!***************************************!*\
   !*** ./demos/css-playground/index.js ***!
   \***************************************/
@@ -10548,5 +10544,6 @@
 	});
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=css-playground.js.map

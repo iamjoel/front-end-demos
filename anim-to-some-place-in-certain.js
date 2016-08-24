@@ -1,27 +1,4 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	var parentJsonpFunction = window["webpackJsonp"];
-/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules) {
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, callbacks = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId])
-/******/ 				callbacks.push.apply(callbacks, installedChunks[chunkId]);
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			modules[moduleId] = moreModules[moduleId];
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
-/******/ 		while(callbacks.length)
-/******/ 			callbacks.shift().call(null, __webpack_require__);
-/******/ 		if(moreModules[0]) {
-/******/ 			installedModules[0] = 0;
-/******/ 			return __webpack_require__(0);
-/******/ 		}
-/******/ 	};
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
 /******/ 	this["webpackHotUpdate"] = 
 /******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
@@ -77,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8b1749cd694356bb8687"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -272,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			for(var chunkId in installedChunks)
+/******/ 			var chunkId = 0;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -547,13 +524,6 @@
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// "0" means "already loaded"
-/******/ 	// Array means "loading", array contains callbacks
-/******/ 	var installedChunks = {
-/******/ 		6:0
-/******/ 	};
-/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -581,29 +551,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
-/******/ 		// "0" is the signal for "already loaded"
-/******/ 		if(installedChunks[chunkId] === 0)
-/******/ 			return callback.call(null, __webpack_require__);
-/******/
-/******/ 		// an array means "currently loading".
-/******/ 		if(installedChunks[chunkId] !== undefined) {
-/******/ 			installedChunks[chunkId].push(callback);
-/******/ 		} else {
-/******/ 			// start chunk loading
-/******/ 			installedChunks[chunkId] = [callback];
-/******/ 			var head = document.getElementsByTagName('head')[0];
-/******/ 			var script = document.createElement('script');
-/******/ 			script.type = 'text/javascript';
-/******/ 			script.charset = 'utf-8';
-/******/ 			script.async = true;
-/******/
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"count-time","1":"css-layout","2":"css-playground","3":"es6-test","4":"html-tag-and-attr","5":"index","7":"promise"}[chunkId]||chunkId) + ".js";
-/******/ 			head.appendChild(script);
-/******/ 		}
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -623,6 +570,69 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/*!*******************************************************!*\
+  !*** ./demos/anim-to-some-place-in-certain/loader.js ***!
+  \*******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 1);
+	__webpack_require__(/*! ./index.js */ 2);
+
+/***/ },
+/* 1 */
+/*!*******************************************************!*\
+  !*** ./demos/anim-to-some-place-in-certain/demo.html ***!
+  \*******************************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<style>\n.dots {\n  position: relative;\n  height: 1000px;\n}\n\n.target,\n.dot {\n  position: absolute;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n}\n\n.target {\n  top: 100px;\n  left: 500px;\n  background-color: #f60;\n}\n\n.dot {\n  background-color: #ddd;\n}\n\n.dot:nth-child(1) {\n  top: 120px;\n  left: 520px;\n}\n\n.dot:nth-child(2) {\n  top: 140px;\n  left: 580px;\n}\n\n.dot:nth-child(3) {\n  left: 620px;\n  top: 140px;\n}\n\n.dot:nth-child(4) {\n  left: 720px;\n  top: 220px;\n}\n</style>\n<div class=\"dots\">\n  <div class=\"dot\"></div>\n  <div class=\"dot\"></div>\n  <div class=\"dot\"></div>\n  <div class=\"dot\"></div>\n  <div class=\"target\"></div>\n</div>\n";
+
+/***/ },
+/* 2 */
+/*!******************************************************!*\
+  !*** ./demos/anim-to-some-place-in-certain/index.js ***!
+  \******************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(/*! jquery */ 3);
+	var moveArr = [];
+	$('.dot').each(function () {
+	  moveArr.push($(this).position());
+	});
+	moveWithAnim($('.target'), moveArr, 5000);
+	
+	function moveWithAnim($el, posArr, time) {
+	  move({
+	    $el: $el,
+	    posArr: posArr,
+	    i: 0,
+	    pos: time / posArr.length
+	  });
+	}
+	
+	function move(opts) {
+	  var $el = opts.$el;
+	  var posArr = opts.posArr;
+	  var i = opts.i;
+	  var time = opts.time;
+	  var pos = posArr[i];
+	  $el.animate({
+	    left: pos.left,
+	    top: pos.top,
+	    duration: time
+	  }, time, function () {
+	    if (posArr.length - 1 !== i) {
+	      move($el, posArr, i + 1, time);
+	    }
+	  });
+	}
+
+/***/ },
+/* 3 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10474,4 +10484,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=jquery.js.map
+//# sourceMappingURL=anim-to-some-place-in-certain.js.map

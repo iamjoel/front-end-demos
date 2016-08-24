@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 4;
+/******/ 			var chunkId = 6;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -571,37 +571,26 @@
 /******/ ({
 
 /***/ 0:
-/*!************************************!*\
-  !*** ./demos/css-layout/loader.js ***!
-  \************************************/
+/*!***********************************!*\
+  !*** ./demos/css-shape/loader.js ***!
+  \***********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(/*! ./style.css */ 11);
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 15);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 20);
 
 /***/ },
 
-/***/ 11:
-/*!************************************!*\
-  !*** ./demos/css-layout/style.css ***!
-  \************************************/
+/***/ 20:
+/*!***********************************!*\
+  !*** ./demos/css-shape/demo.html ***!
+  \***********************************/
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 15:
-/*!************************************!*\
-  !*** ./demos/css-layout/demo.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<a name=\"top\">\n</a>\n<div class=\"demo\">\n  <h2>行内元素</h2>\n  <div>\n    <span>span</span> <a href=\"###\">链接</a>\n    <label>label</label>\n    <input type=\"text\">\n  </div>\n  <h2>块级元素</h2>\n  <p>段落</p>\n  <div>div</div>\n  <ul>\n    <li>item1</li>\n    <li>item2</li>\n  </ul>\n</div>\n<div class=\"demo\">\n  <h2>行内元素的水平居中</h2>\n  <!-- 在父元素生设置 text-align: center; -->\n  <div class=\"inline-center\">哈哈<strong style=\"margin-left:100px;\">!</strong></div>\n</div>\n<div class=\"demo\">\n  <h2>元素的水平居中</h2>\n  <div class=\"block-center\"></div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素水平居中</h2>\n  <div class=\"inline-block--center\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素两端对齐</h2>\n  <div class=\"inline-block--justify\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>单行文本的垂直居中</h2>\n  <div class=\"ver-center\">这是一行文本</div>\n</div>\n<div class=\"demo\">\n  <h2>固定在页面的某个位子，见右下方的返回顶部</h2>\n  <a href=\"#top\" class=\"back-top\">返回顶部</a>\n</div>\n";
+	module.exports = "<!-- http://www.w3cplus.com/css/css-simple-shapes-cheat-sheet -->\n<!-- 椭圆 -->\n<style>\n#oval {\n  width: 200px;\n  height: 100px;\n  background: red;\n  -moz-border-radius: 100px / 50px;\n  -webkit-border-radius: 100px / 50px;\n  border-radius: 100px / 50px;\n}\n</style>\n<div id=\"oval\"></div>\n<style>\n#test-border-radious {\n  width: 200px;\n  height: 100px;\n  background: red;\n  /* 左上x，右上x，左下x，右下x / 左上y，右上y，左下y，右下y */\n  border-radius: 5px 50px 15px 20px / 120px 85px 50px 10px;\n}\n</style>\n<!-- http://www.w3cplus.com/css3/border-radius -->\n<div id=\"test-border-radious\"></div>\n<!-- 平行四边形 -->\n<style>\n#parallelogram {\n  width: 100px;\n  height: 70px;\n  -webkit-transform: skew(-20deg);\n  -moz-transform: skew(-20deg);\n  -o-transform: skew(-20deg);\n  -ms-transform: skew(-20deg);\n  transform: skew(-20deg);\n  background: red;\n  margin: 30px;\n}\n</style>\n<div id=\"parallelogram\"></div>\n<!-- 梯形 -->\n<style>\n#trapezoid-1 {\n  width: 100px;\n  height: 70px;\n  -webkit-transform: skew(-20deg);\n  -moz-transform: skew(-20deg);\n  -o-transform: skew(-20deg);\n  -ms-transform: skew(-20deg);\n  transform: skew(-20deg);\n  background: red;\n  margin: 30px;\n}\n\n#trapezoid-1:after {\n  content: '';\n  display: block;\n  width: 100px;\n  height: 70px;\n  background: red;\n  margin-left: 29px;\n  -webkit-transform: skew(40deg);\n  -moz-transform: skew(40deg);\n  -o-transform: skew(40deg);\n  -ms-transform: skew(40deg);\n  transform: skew(40deg);\n}\n</style>\n<div id=\"trapezoid-1\"></div>\n<style>\n#trapezoid-2 {\n  height: 0;\n  width: 100px;\n  border-bottom: 100px solid red;\n  border-left: 60px solid transparent;\n  border-right: 60px solid transparent;\n}\n</style>\n<div id=\"trapezoid-2\"></div>\n<style>\n#triangle-up {\n  height: 0;\n  width: 0;\n  border: 50px solid red;\n  border-color: transparent transparent red transparent;\n  margin: 30px;\n}\n</style>\n<div id=\"triangle-up\"></div>\n";
 
 /***/ }
 
 /******/ });
-//# sourceMappingURL=css-layout.js.map
+//# sourceMappingURL=css-shape.js.map

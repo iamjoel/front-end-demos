@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "47a3a5f95b5952c3ef46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 6;
+/******/ 			var chunkId = 11;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -578,12 +578,12 @@
 
 	'use strict';
 	
-	__webpack_require__(/*! ./index.js */ 18);
+	__webpack_require__(/*! ./index.js */ 29);
 	// require('./jquery-deferred.js')
 
 /***/ },
 
-/***/ 18:
+/***/ 29:
 /*!********************************!*\
   !*** ./demos/promise/index.js ***!
   \********************************/

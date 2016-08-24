@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "47a3a5f95b5952c3ef46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 3;
+/******/ 			var chunkId = 7;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -578,11 +578,11 @@
 
 	'use strict';
 	
-	__webpack_require__(/*! ./index.js */ 14);
+	__webpack_require__(/*! ./index.js */ 21);
 
 /***/ },
 
-/***/ 14:
+/***/ 21:
 /*!*********************************!*\
   !*** ./demos/es6-test/index.js ***!
   \*********************************/

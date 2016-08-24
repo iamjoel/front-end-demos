@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "47a3a5f95b5952c3ef46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 5;
+/******/ 			var chunkId = 10;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -578,17 +578,17 @@
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 17);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 28);
 
 /***/ },
 
-/***/ 17:
+/***/ 28:
 /*!*******************************!*\
   !*** ./demos/index/demo.html ***!
   \*******************************/
 /***/ function(module, exports) {
 
-	module.exports = "<h1>Demo 导航</h1>\r\n<ul>\r\n  <li><a href=\"html-tag-and-attr.html\" target=\"_blank\">HTML常见标签和属性</a></li>\r\n  <li><a href=\"css-layout.html\" target=\"_blank\">CSS 布局</a></li>\r\n  <li><a href=\"css-playground.html\" target=\"_blank\">CSS 属性在线体验</a></li>\r\n  <li><a href=\"count-time.html\" target=\"_blank\">倒计时</a></li>\r\n  <li><a href=\"promise.html\" target=\"_blank\">Promise</a></li>\r\n</ul>";
+	module.exports = "<h1>Demos</h1>\n<ul>\n  <li>\n    <h2>HTML</h2>\n    <ul>\n      <li><a href=\"html-struct.html\" target=\"_blank\">HTML 基本结构</a></li>\n      <li><a href=\"html-tag-and-attr.html\" target=\"_blank\">HTML常见标签和属性</a></li>\n    </ul>\n  </li>\n  <li>\n    <h2>CSS</h2>\n    <ul>\n       <li><a href=\"css-layout.html\" target=\"_blank\">CSS 布局</a></li>\n        <li><a href=\"css-playground.html\" target=\"_blank\">CSS 属性在线体验</a></li>\n        <li><a href=\"apple-icon.html\" target=\"_blank\">纯 CSS 做苹果</a></li>\n        <!-- TODO 完善 <li><a href=\"css-shape.html\" target=\"_blank\">CSS 图形</a></li> -->\n    </ul>\n  </li>\n  <li>\n    <h2>JavaScript</h2>\n    <ul>\n      <li><a href=\"count-time.html\" target=\"_blank\">倒计时</a></li>\n      <li><a href=\"promise.html\" target=\"_blank\">Promise</a></li>\n      <li><a href=\"anim-to-some-place-in-certain.html\" target=\"_blank\">在固定时间内，以动画的形式，经过若个点，移动到指定位置</a></li>\n      <li><a href=\"caculate-hole-size.html\" target=\"_blank\">算坑可以填多少水</a></li>\n    </ul>\n  </li>\n</ul>";
 
 /***/ }
 

@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 4;
+/******/ 			var chunkId = 2;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -568,40 +568,94 @@
 /******/ 	return hotCreateRequire(0)(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
-/*!************************************!*\
-  !*** ./demos/css-layout/loader.js ***!
-  \************************************/
+/******/ ([
+/* 0 */
+/*!********************************************!*\
+  !*** ./demos/caculate-hole-size/loader.js ***!
+  \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(/*! ./style.css */ 11);
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 15);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 5);
+	__webpack_require__(/*! ./index.js */ 7);
 
 /***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */
+/*!********************************************!*\
+  !*** ./demos/caculate-hole-size/demo.html ***!
+  \********************************************/
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 11:
-/*!************************************!*\
-  !*** ./demos/css-layout/style.css ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
+	module.exports = "<h1>算坑里能填多少水</h1>\n<img src=\"" + __webpack_require__(/*! ./target.jpg */ 6) + "\">\n";
 
 /***/ },
+/* 6 */
+/*!*********************************************!*\
+  !*** ./demos/caculate-hole-size/target.jpg ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
 
-/***/ 15:
-/*!************************************!*\
-  !*** ./demos/css-layout/demo.html ***!
-  \************************************/
+	module.exports = __webpack_require__.p + "e2275c3236ba61bd98be9ab952f4350a.jpg";
+
+/***/ },
+/* 7 */
+/*!*******************************************!*\
+  !*** ./demos/caculate-hole-size/index.js ***!
+  \*******************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<a name=\"top\">\n</a>\n<div class=\"demo\">\n  <h2>行内元素</h2>\n  <div>\n    <span>span</span> <a href=\"###\">链接</a>\n    <label>label</label>\n    <input type=\"text\">\n  </div>\n  <h2>块级元素</h2>\n  <p>段落</p>\n  <div>div</div>\n  <ul>\n    <li>item1</li>\n    <li>item2</li>\n  </ul>\n</div>\n<div class=\"demo\">\n  <h2>行内元素的水平居中</h2>\n  <!-- 在父元素生设置 text-align: center; -->\n  <div class=\"inline-center\">哈哈<strong style=\"margin-left:100px;\">!</strong></div>\n</div>\n<div class=\"demo\">\n  <h2>元素的水平居中</h2>\n  <div class=\"block-center\"></div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素水平居中</h2>\n  <div class=\"inline-block--center\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素两端对齐</h2>\n  <div class=\"inline-block--justify\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>单行文本的垂直居中</h2>\n  <div class=\"ver-center\">这是一行文本</div>\n</div>\n<div class=\"demo\">\n  <h2>固定在页面的某个位子，见右下方的返回顶部</h2>\n  <a href=\"#top\" class=\"back-top\">返回顶部</a>\n</div>\n";
+	"use strict";
+	
+	/*
+	 * 找坑
+	 * 坑的左侧值小于等于坑右侧的值，大于坑里面的值
+	 * @returns 类似 [[5, 1, 5], [5,2,3,6]]
+	 */
+	function findHoles(arr) {
+	  var res = [];
+	  var holeLeftValue = arr[0];
+	  var holeRightValue;
+	  var tempHole = [holeLeftValue];
+	  arr.forEach(function (each, index) {
+	    if (index > 0) {
+	      if (each < holeLeftValue) {
+	        tempHole.push(each);
+	      } else {
+	        holeRightValue = each;
+	        holeLeftValue = holeRightValue;
+	        if (tempHole.length >= 2) {
+	          tempHole.push(holeRightValue);
+	          res.push(tempHole);
+	        }
+	        tempHole = [holeLeftValue];
+	      }
+	    }
+	  });
+	  return res;
+	}
+	/*
+	 * 算洞的空间
+	 * @param 形如 [[5, 1, 5], [5,2,3,6]]
+	 */
+	function calulateHole(holeArr) {
+	  var sum = holeArr.reduce(function (prev, hole) {
+	    var min = Math.min(hole[0], hole[holeArr.length - 1]);
+	    hole.shift();
+	    hole.pop();
+	    return prev + hole.reduce(function (prevRes, item, index) {
+	      return prevRes + min - item;
+	    }, 0);
+	  }, 0);
+	  return sum;
+	}
+	var value = calulateHole(findHoles([2, 5, 1, 2, 3, 4, 7, 7, 6]));
+	console.log(value);
 
 /***/ }
-
-/******/ });
-//# sourceMappingURL=css-layout.js.map
+/******/ ]);
+//# sourceMappingURL=caculate-hole-size.js.map

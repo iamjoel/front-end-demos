@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 4;
+/******/ 			var chunkId = 1;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -568,40 +568,29 @@
 /******/ 	return hotCreateRequire(0)(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /*!************************************!*\
-  !*** ./demos/css-layout/loader.js ***!
+  !*** ./demos/apple-icon/loader.js ***!
   \************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(/*! ./style.css */ 11);
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 15);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 4);
 
 /***/ },
-
-/***/ 11:
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
 /*!************************************!*\
-  !*** ./demos/css-layout/style.css ***!
+  !*** ./demos/apple-icon/demo.html ***!
   \************************************/
 /***/ function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 15:
-/*!************************************!*\
-  !*** ./demos/css-layout/demo.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<a name=\"top\">\n</a>\n<div class=\"demo\">\n  <h2>行内元素</h2>\n  <div>\n    <span>span</span> <a href=\"###\">链接</a>\n    <label>label</label>\n    <input type=\"text\">\n  </div>\n  <h2>块级元素</h2>\n  <p>段落</p>\n  <div>div</div>\n  <ul>\n    <li>item1</li>\n    <li>item2</li>\n  </ul>\n</div>\n<div class=\"demo\">\n  <h2>行内元素的水平居中</h2>\n  <!-- 在父元素生设置 text-align: center; -->\n  <div class=\"inline-center\">哈哈<strong style=\"margin-left:100px;\">!</strong></div>\n</div>\n<div class=\"demo\">\n  <h2>元素的水平居中</h2>\n  <div class=\"block-center\"></div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素水平居中</h2>\n  <div class=\"inline-block--center\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>多个块级元素两端对齐</h2>\n  <div class=\"inline-block--justify\">\n    <div class=\"inline-block__item\">1</div>\n    <div class=\"inline-block__item\">2</div>\n    <div class=\"inline-block__item\">3</div>\n    <div class=\"inline-block__item\">4</div>\n  </div>\n</div>\n<div class=\"demo\">\n  <h2>单行文本的垂直居中</h2>\n  <div class=\"ver-center\">这是一行文本</div>\n</div>\n<div class=\"demo\">\n  <h2>固定在页面的某个位子，见右下方的返回顶部</h2>\n  <a href=\"#top\" class=\"back-top\">返回顶部</a>\n</div>\n";
+	module.exports = "<style>\n.apple {\n  position: relative;\n  width: 172px;\n  height: 202px;\n  margin: 150px auto;\n  outline: 1px solid green;\n  outline-offset: 30px;\n}\n\n.handle {\n  position: absolute;\n  z-index: 100;\n  left: 122px;\n  top: -22px;\n  transform: rotate(40deg);\n  background-color: #62bb47;\n}\n\n.handle:before,\n.handle:after {\n  background-color: #62bb47;\n  border-radius: 50%;\n  content: \"#\";\n  display: block;\n  height: 90px;\n  position: absolute;\n  text-indent: -9999px;\n  width: 90px;\n}\n\n.handle:before {\n  clip: rect(0 13px 80px 0px);\n}\n\n.handle:after {\n  clip: rect(14px 100px 76px 76px);\n  left: -64px;\n}\n\n.apple .top,\n.apple .bottom {\n  position: absolute;\n  background-color: #e03a3e;\n}\n\n.top-wrap,\n.bottom-wrap {\n  position: absolute;\n  width: 100%;\n  overflow: hidden;\n}\n\n.top-wrap {\n  top: 47px;\n  height: 128px;\n}\n\n.top {\n  top: 0;\n  border-radius: 108px/128px;\n  width: 108px;\n  height: 100%;\n}\n\n.top.left {\n  left: 0;\n}\n\n.top.right {\n  right: 0;\n}\n\n.bottom-wrap {\n  top: 98px;\n  height: 104px;\n}\n\n.bottom {\n  border-radius: 22px 22px 64px 64px/106px 106px 106px 106px;\n  height: 106px;\n  top: 0;\n  width: 64px;\n}\n\n.bottom.left {\n  transform: rotate(-25deg);\n  left: 12px;\n}\n\n.bottom.right {\n  transform: rotate(25deg);\n  right: 12px;\n}\n\n.middle,\n.bottom-radius,\n.top-radius {\n  position: absolute;\n  background-color: #e03a3e;\n  left: 50%;\n  transform: translateX(-50%);\n}\n\n.middle {\n  height: 145px;\n  top: 55px;\n  width: 70px;\n}\n\n.bottom-radius {\n  position: absolute;\n  border-radius: 50%;\n  height: 22px;\n  top: 192px;\n  width: 48px;\n  background-color: #fff;\n}\n\n.top-radius {\n  top: -26px;\n  border-radius: 20px;\n  height: 80px;\n  transform: translateX(-50%) rotate(-45deg) scale(0.9);\n  width: 80px;\n  background-color: #fff;\n}\n</style>\n\n<body>\n  <!-- http://www.ecsspert.com/css3-logos/apple.php -->\n  <div class=\"apple\">\n    <div class=\"handle\"></div>\n    <div class=\"top-wrap\">\n      <div class=\"top left\"></div>\n      <div class=\"top right\"></div>\n    </div>\n    <div class=\"bottom-wrap\">\n      <div class=\"bottom left\"></div>\n      <div class=\"bottom right\"></div>\n    </div>\n    <div class=\"middle\"></div>\n    <div class=\"bottom-radius\"></div>\n    <div class=\"top-radius\"></div>\n  </div>\n</body>\n";
 
 /***/ }
-
-/******/ });
-//# sourceMappingURL=css-layout.js.map
+/******/ ]);
+//# sourceMappingURL=apple-icon.js.map

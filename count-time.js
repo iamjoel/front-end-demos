@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "47a3a5f95b5952c3ef46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			var chunkId = 3;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -577,107 +577,12 @@
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 1);
-	__webpack_require__(/*! ./index.js */ 2);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 8);
+	__webpack_require__(/*! ./index.js */ 9);
 
 /***/ },
-/* 1 */
-/*!************************************!*\
-  !*** ./demos/count-time/demo.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"demo-item\">\r\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\r\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\r\n</div>\r\n";
-
-/***/ },
-/* 2 */
-/*!***********************************!*\
-  !*** ./demos/count-time/index.js ***!
-  \***********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(/*! jquery */ 3);
-	var CountTime = __webpack_require__(/*! ./count-time.js */ 4);
-	
-	$(document).ready(function () {
-	  var $demos = $('.demo-item')
-	
-	  // 普通用法
-	  ;(function ($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 10,
-	        minute: 59,
-	        second: 58
-	      }
-	    });
-	
-	    var $controlBtn = $('.control-btn', $wrap);
-	    $controlBtn.click(function () {
-	      if (countTime.isRun()) {
-	        countTime.stop();
-	        $controlBtn.text('开始');
-	      } else {
-	        countTime.start();
-	        $controlBtn.text('运行');
-	      }
-	    });
-	    setInterval(function () {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(0))
-	
-	  // 倒计时
-	  ;(function ($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 1,
-	        minute: 0,
-	        second: 1
-	      },
-	      reverse: true
-	    });
-	    setInterval(function () {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(1))
-	
-	  // 倒计时 结束回调
-	  ;(function ($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 0,
-	        minute: 0,
-	        second: 2
-	      },
-	      reverse: true,
-	      completeFn: function completeFn() {
-	        console.log('completed~');
-	      }
-	    });
-	    setInterval(function () {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(2));
-	
-	  function formatTime(timeObj) {
-	    return [fillZero(timeObj.hour), fillZero(timeObj.minute), fillZero(timeObj.second)].join(' : ');
-	  }
-	
-	  function fillZero(num) {
-	    if (num < 10) {
-	      num = '0' + num;
-	    }
-	    return num;
-	  }
-	});
-
-/***/ },
+/* 1 */,
+/* 2 */,
 /* 3 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
@@ -10529,7 +10434,108 @@
 
 
 /***/ },
-/* 4 */
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/*!************************************!*\
+  !*** ./demos/count-time/demo.html ***!
+  \************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"demo-item\">\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\n</div>\n";
+
+/***/ },
+/* 9 */
+/*!***********************************!*\
+  !*** ./demos/count-time/index.js ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(/*! jquery */ 3);
+	var CountTime = __webpack_require__(/*! ./count-time.js */ 10);
+	
+	$(document).ready(function () {
+	  var $demos = $('.demo-item')
+	
+	  // 普通用法
+	  ;(function ($wrap) {
+	    var $countTime = $('.count-time', $wrap);
+	    var countTime = new CountTime({
+	      init: {
+	        hour: 10,
+	        minute: 59,
+	        second: 58
+	      }
+	    });
+	
+	    var $controlBtn = $('.control-btn', $wrap);
+	    $controlBtn.click(function () {
+	      if (countTime.isRun()) {
+	        countTime.stop();
+	        $controlBtn.text('开始');
+	      } else {
+	        countTime.start();
+	        $controlBtn.text('运行');
+	      }
+	    });
+	    setInterval(function () {
+	      $countTime.text(formatTime(countTime.getTime()));
+	    }, 500);
+	  })($demos.eq(0))
+	
+	  // 倒计时
+	  ;(function ($wrap) {
+	    var $countTime = $('.count-time', $wrap);
+	    var countTime = new CountTime({
+	      init: {
+	        hour: 1,
+	        minute: 0,
+	        second: 1
+	      },
+	      reverse: true
+	    });
+	    setInterval(function () {
+	      $countTime.text(formatTime(countTime.getTime()));
+	    }, 500);
+	  })($demos.eq(1))
+	
+	  // 倒计时 结束回调
+	  ;(function ($wrap) {
+	    var $countTime = $('.count-time', $wrap);
+	    var countTime = new CountTime({
+	      init: {
+	        hour: 0,
+	        minute: 0,
+	        second: 2
+	      },
+	      reverse: true,
+	      completeFn: function completeFn() {
+	        console.log('completed~');
+	      }
+	    });
+	    setInterval(function () {
+	      $countTime.text(formatTime(countTime.getTime()));
+	    }, 500);
+	  })($demos.eq(2));
+	
+	  function formatTime(timeObj) {
+	    return [fillZero(timeObj.hour), fillZero(timeObj.minute), fillZero(timeObj.second)].join(' : ');
+	  }
+	
+	  function fillZero(num) {
+	    if (num < 10) {
+	      num = '0' + num;
+	    }
+	    return num;
+	  }
+	});
+
+/***/ },
+/* 10 */
 /*!****************************************!*\
   !*** ./demos/count-time/count-time.js ***!
   \****************************************/
