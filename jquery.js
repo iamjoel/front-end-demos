@@ -1,4 +1,27 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	var parentJsonpFunction = window["webpackJsonp"];
+/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules) {
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, callbacks = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId])
+/******/ 				callbacks.push.apply(callbacks, installedChunks[chunkId]);
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			modules[moduleId] = moreModules[moduleId];
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
+/******/ 		while(callbacks.length)
+/******/ 			callbacks.shift().call(null, __webpack_require__);
+/******/ 		if(moreModules[0]) {
+/******/ 			installedModules[0] = 0;
+/******/ 			return __webpack_require__(0);
+/******/ 		}
+/******/ 	};
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
 /******/ 	this["webpackHotUpdate"] = 
 /******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
@@ -54,7 +77,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "47a3a5f95b5952c3ef46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8b1749cd694356bb8687"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +272,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			for(var chunkId in installedChunks)
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -524,6 +547,13 @@
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// "0" means "already loaded"
+/******/ 	// Array means "loading", array contains callbacks
+/******/ 	var installedChunks = {
+/******/ 		6:0
+/******/ 	};
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -551,6 +581,29 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
+/******/ 		// "0" is the signal for "already loaded"
+/******/ 		if(installedChunks[chunkId] === 0)
+/******/ 			return callback.call(null, __webpack_require__);
+/******/
+/******/ 		// an array means "currently loading".
+/******/ 		if(installedChunks[chunkId] !== undefined) {
+/******/ 			installedChunks[chunkId].push(callback);
+/******/ 		} else {
+/******/ 			// start chunk loading
+/******/ 			installedChunks[chunkId] = [callback];
+/******/ 			var head = document.getElementsByTagName('head')[0];
+/******/ 			var script = document.createElement('script');
+/******/ 			script.type = 'text/javascript';
+/******/ 			script.charset = 'utf-8';
+/******/ 			script.async = true;
+/******/
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"count-time","1":"css-layout","2":"css-playground","3":"es6-test","4":"html-tag-and-attr","5":"index","7":"promise"}[chunkId]||chunkId) + ".js";
+/******/ 			head.appendChild(script);
+/******/ 		}
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -570,115 +623,6 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!************************************!*\
-  !*** ./demos/count-time/loader.js ***!
-  \************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 1);
-	__webpack_require__(/*! ./index.js */ 2);
-
-/***/ },
-/* 1 */
-/*!************************************!*\
-  !*** ./demos/count-time/demo.html ***!
-  \************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<div class=\"demo-item\">\r\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\r\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\r\n</div>\r\n";
-
-/***/ },
-/* 2 */
-/*!***********************************!*\
-  !*** ./demos/count-time/index.js ***!
-  \***********************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(/*! jquery */ 3);
-	var CountTime = __webpack_require__(/*! ./count-time.js */ 4);
-	
-	$(document).ready(function () {
-	  var $demos = $('.demo-item')
-	
-	  // 普通用法
-	  ;(function ($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 10,
-	        minute: 59,
-	        second: 58
-	      }
-	    });
-	
-	    var $controlBtn = $('.control-btn', $wrap);
-	    $controlBtn.click(function () {
-	      if (countTime.isRun()) {
-	        countTime.stop();
-	        $controlBtn.text('开始');
-	      } else {
-	        countTime.start();
-	        $controlBtn.text('运行');
-	      }
-	    });
-	    setInterval(function () {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(0))
-	
-	  // 倒计时
-	  ;(function ($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 1,
-	        minute: 0,
-	        second: 1
-	      },
-	      reverse: true
-	    });
-	    setInterval(function () {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(1))
-	
-	  // 倒计时 结束回调
-	  ;(function ($wrap) {
-	    var $countTime = $('.count-time', $wrap);
-	    var countTime = new CountTime({
-	      init: {
-	        hour: 0,
-	        minute: 0,
-	        second: 2
-	      },
-	      reverse: true,
-	      completeFn: function completeFn() {
-	        console.log('completed~');
-	      }
-	    });
-	    setInterval(function () {
-	      $countTime.text(formatTime(countTime.getTime()));
-	    }, 500);
-	  })($demos.eq(2));
-	
-	  function formatTime(timeObj) {
-	    return [fillZero(timeObj.hour), fillZero(timeObj.minute), fillZero(timeObj.second)].join(' : ');
-	  }
-	
-	  function fillZero(num) {
-	    if (num < 10) {
-	      num = '0' + num;
-	    }
-	    return num;
-	  }
-	});
-
-/***/ },
-/* 3 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10528,107 +10472,6 @@
 	}));
 
 
-/***/ },
-/* 4 */
-/*!****************************************!*\
-  !*** ./demos/count-time/count-time.js ***!
-  \****************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	var defaultOpts = {
-	  init: { // 初始值，只支持到小时。不支持小时以上如：天，月，之类的
-	    hour: 0,
-	    minute: 0,
-	    second: 0
-	  },
-	  reverse: false, // 是正数，还是倒数
-	  completeFn: function completeFn() {} // 倒数结束的回调
-	};
-	
-	function CountTime(options) {
-	  this.options = Object.assign({}, defaultOpts, options);
-	  var opt = this.options;
-	  this.hour = opt.init.hour;
-	  this.minute = opt.init.minute;
-	  this.second = opt.init.second;
-	  this.interval = opt.reverse ? -1 : 1; // 1s
-	  this.runId = false;
-	  this.start();
-	}
-	CountTime.prototype = {
-	  run: function run() {
-	    if (this._canRun()) {
-	      this.second = this.second + this.interval;
-	      this._toValidTime();
-	    } else {
-	      this.stop();
-	      this.options.completeFn();
-	    }
-	  },
-	  start: function start() {
-	    var self = this;
-	    this.runId = setInterval(function () {
-	      self.run();
-	    }, 1000);
-	  },
-	  stop: function stop() {
-	    clearInterval(this.runId);
-	    this.runId = false;
-	  },
-	  isRun: function isRun() {
-	    return this.runId !== false;
-	  },
-	  isStop: function isStop() {
-	    return this.runId === false;
-	  },
-	  getTime: function getTime() {
-	    return {
-	      hour: this.hour,
-	      minute: this.minute,
-	      second: this.second
-	    };
-	  },
-	  _canRun: function _canRun() {
-	    // 到倒数时，到0的时候，就结束了
-	    var canRun = true;
-	    if (this.options.reverse) {
-	      if (this.hour === 0 && this.minute === 0 && this.second === 0) {
-	        canRun = false;
-	      }
-	    }
-	    return canRun;
-	  },
-	  _toValidTime: function _toValidTime() {
-	    if (this.second <= -1) {
-	      this.second = 59;
-	      this.minute = this.minute - 1;
-	    } else if (this.second >= 60) {
-	      this.second = 0;
-	      this.minute = this.minute + 1;
-	    }
-	
-	    if (this.minute <= -1) {
-	      this.minute = 59;
-	      this.hour = this.hour - 1;
-	    } else if (this.minute >= 60) {
-	      this.minute = 0;
-	      this.hour = this.hour + 1;
-	    }
-	
-	    if (this.hour < 0) {
-	      this.hour = 0;
-	      this.minute = 0;
-	      this.second = 0;
-	    }
-	    // 小时太大就不管啦
-	  }
-	
-	};
-	
-	module.exports = CountTime;
-
 /***/ }
 /******/ ]);
-//# sourceMappingURL=count-time.js.map
+//# sourceMappingURL=jquery.js.map
