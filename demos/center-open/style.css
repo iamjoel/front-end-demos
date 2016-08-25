@@ -1,0 +1,62 @@
+.wrap {
+  margin: 50px auto;
+  width: 200px;
+  position: relative;
+  height: 200px;
+}
+
+.content {
+  position: absolute;
+  background-color: #f00;
+  width: 100%;
+  height: 100px;
+}
+
+.top,
+.bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-size: 100% !important;
+  animation: centerOpen 3s alternate infinite;
+}
+
+.top:before,
+.bottom:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-image: url(pic.png);
+  -webkit-background-size: 100% 200%;
+  background-size: 100% 200%;
+}
+
+.top {
+  bottom: 50%;
+}
+
+.bottom {
+  top: 50%;
+}
+
+.top:before {
+  bottom: 0;
+  /*background-position: 0 100px;*/
+}
+
+.bottom:before {
+  top: 0;
+  background-position: 0 100px;
+}
+
+@keyframes centerOpen {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
+}

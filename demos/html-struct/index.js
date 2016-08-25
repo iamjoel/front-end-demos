@@ -7,8 +7,8 @@ new Vue({
   },
   computed: {
     html: function () {
-      let mobileMeta = this.isInMobile ? '<meta name="viewport" content="width=device-width, initial-scale=1">' : '';
-      let useLatest = this.isUseLatest ? '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">' : '';
+      let mobileMeta = this.isInMobile ? '<meta name="viewport" content="width=device-width, initial-scale=1">' : ''
+      let useLatest = this.isUseLatest ? '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">' : ''
       return `<!DOCTYPE html>
                 <html lang="en">
                 <head>
