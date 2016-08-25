@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 6;
+/******/ 			var chunkId = 14;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -571,16 +571,16 @@
 /******/ ({
 
 /***/ 0:
-/*!****************************************!*\
-  !*** ./demos/css-playground/loader.js ***!
-  \****************************************/
+/*!******************************************!*\
+  !*** ./demos/response-nav-bar/loader.js ***!
+  \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(/*! ./style.css */ 20);
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 22);
-	__webpack_require__(/*! ./index.js */ 23);
+	__webpack_require__(/*! ./style.css */ 39);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 42);
+	__webpack_require__(/*! ./index.js */ 43);
 
 /***/ },
 
@@ -10436,114 +10436,41 @@
 
 /***/ },
 
-/***/ 20:
-/*!****************************************!*\
-  !*** ./demos/css-playground/style.css ***!
-  \****************************************/
+/***/ 39:
+/*!******************************************!*\
+  !*** ./demos/response-nav-bar/style.css ***!
+  \******************************************/
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 22:
-/*!****************************************!*\
-  !*** ./demos/css-playground/demo.html ***!
-  \****************************************/
+/***/ 42:
+/*!******************************************!*\
+  !*** ./demos/response-nav-bar/demo.html ***!
+  \******************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<style id=\"target-style\"></style>\r\n<!-- Inspired by http://css3please.com/ -->\r\n<div class=\"container\">\r\n  <h1 class=\"title\">CSS Playground</h1>\r\n  <div class=\"css\">\r\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">5px</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span> solid\r\n      <span class=\"editable\">\r\n            <span class=\"editable-text\">#800080</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 边框 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border-radius</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">15%</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 圆角 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">background</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ff8000</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 背景 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">color</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ffffff</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\r\n    </div>\r\n    <span class=\"bracket\">}</span>\r\n  </div>\r\n</div>\r\n<div class=\"target\">Taget</div>\r\n";
+	module.exports = "<div class=\"navbar\">\r\n  <div class=\"container clearfix\">\r\n    <a class=\"navbar__logo\" href=\"###\">响应式导航条</a>\r\n    <a href=\"javascript:void(0);\" class=\"navbar__menu-btn\"></a>\r\n    <ul class=\"navbar__contents\">\r\n      <li class=\"navbar__item\"><a href=\"###\">导航1</a></li>\r\n      <li class=\"navbar__item\"><a href=\"###\">导航2</a></li>\r\n      <li class=\"navbar__item\"><a href=\"###\">导航3</a></li>\r\n      <li class=\"navbar__item\"><a href=\"###\">导航4</a></li>\r\n    </ul>\r\n  </div>\r\n</div>\r\n";
 
 /***/ },
 
-/***/ 23:
-/*!***************************************!*\
-  !*** ./demos/css-playground/index.js ***!
-  \***************************************/
+/***/ 43:
+/*!*****************************************!*\
+  !*** ./demos/response-nav-bar/index.js ***!
+  \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var $ = __webpack_require__(/*! jquery */ 3);
-	$(document).ready(function () {
-	  // 新增属性,删除属性,值的 autocomplate
-	  var init = function init() {
-	    // 输入框同步显示的文本的值
-	    $('.editable-text').each(function () {
-	      var $this = $(this);
-	      var value = $this.text();
-	      // if(tol)
-	      $this.next('.editable-value').val(value);
-	    });
-	    registerEvent();
-	    render();
-	  };
-	  var render = function render() {
-	    var $targetStyle = $('#target-style');
-	    var style = '.target{\n        ' + gatherStyleRules() + '\n      }';
-	    $targetStyle.html(style);
-	  };
-	  var gatherStyleRules = function gatherStyleRules() {
-	    var styleArr = [];
-	    $('.rule').each(function () {
-	      var $this = $(this);
-	      var property = $this.find('.property').text();
-	      var value = $this.find('.value').text().replace(/( )+/g, ' ').replace(/\n/g, '') + '';
-	      styleArr.push(property + ':' + value + ';');
-	    });
-	    return styleArr.join('\n');
-	  };
-	
-	  var registerEvent = function registerEvent() {
-	    $('.editable').click(function () {
-	      var $this = $(this);
-	      $this.addClass('edit');
-	    });
-	    var $editableInput = $('.editable-value');
-	    $editableInput.filter('[type=text]').blur(function () {
-	      $(this).closest('.editable').removeClass('edit');
-	    }).keyup(function (event) {
-	      var $this = $(this);
-	      var $editText = $this.prev('.editable-text');
-	      event.preventDefault();
-	      // 上 或 下
-	      if (event.which === 38 || event.which === 40) {
-	        var addNum = event.which === 38 ? 1 : -1;
-	        var vaule = tools.addNumberVal($this.val(), addNum);
-	        $this.val(vaule);
-	        $editText.text(vaule);
-	      } else {
-	        $editText.text($this.val());
-	      }
-	      render();
-	    });
-	
-	    $editableInput.filter('[type=color]').change(function () {
-	      var $this = $(this);
-	      var value = $this.val();
-	      var $editText = $this.prev('.editable-text');
-	      $editText.text(value);
-	      render();
-	      $this.closest('.editable').removeClass('edit');
-	    });
-	  };
-	
-	  var tools = {
-	    addNumberVal: function addNumberVal(numVal, addVal) {
-	      if (!isNaN(numVal)) {
-	        return numVal;
-	      }
-	      var num = (numVal + '').indexOf('.') > -1 ? parseFloat(numVal) : parseInt(numVal);
-	      num = num + addVal;
-	      var unit = /[a-zA-Z%]+/.exec(numVal)[0];
-	      return num + unit;
-	    }
-	  };
-	
-	  init();
+	var $navContents = $('.navbar__contents');
+	$('.navbar__menu-btn').click(function () {
+	  $navContents.toggleClass('navbar__contents--show');
 	});
 
 /***/ }
 
 /******/ });
-//# sourceMappingURL=css-playground.js.map
+//# sourceMappingURL=response-nav-bar.js.map

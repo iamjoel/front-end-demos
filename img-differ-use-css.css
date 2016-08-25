@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.tc-wrap {
+  text-align: center;
+}
+
+.wrap {
+  position: relative;
+  width: 350px;
+  margin: 10px auto;
+}
+
+.img {
+  display: block;
+}
+
+.img--cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wrap--filter .img--cover {
+  -webkit-filter: invert(100%) opacity(50%);
+  filter: invert(100%) opacity(50%);
+}
+
+.wrap--mix-blend-mode .img--cover {
+  mix-blend-mode: difference;
+}
+/*# sourceMappingURL=img-differ-use-css.css.map*/

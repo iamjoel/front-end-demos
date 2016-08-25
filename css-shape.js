@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "da147b73f231057430f9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 6;
+/******/ 			var chunkId = 7;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -578,17 +578,17 @@
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 20);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 24);
 
 /***/ },
 
-/***/ 20:
+/***/ 24:
 /*!***********************************!*\
   !*** ./demos/css-shape/demo.html ***!
   \***********************************/
 /***/ function(module, exports) {
 
-	module.exports = "<!-- http://www.w3cplus.com/css/css-simple-shapes-cheat-sheet -->\n<!-- 椭圆 -->\n<style>\n#oval {\n  width: 200px;\n  height: 100px;\n  background: red;\n  -moz-border-radius: 100px / 50px;\n  -webkit-border-radius: 100px / 50px;\n  border-radius: 100px / 50px;\n}\n</style>\n<div id=\"oval\"></div>\n<style>\n#test-border-radious {\n  width: 200px;\n  height: 100px;\n  background: red;\n  /* 左上x，右上x，左下x，右下x / 左上y，右上y，左下y，右下y */\n  border-radius: 5px 50px 15px 20px / 120px 85px 50px 10px;\n}\n</style>\n<!-- http://www.w3cplus.com/css3/border-radius -->\n<div id=\"test-border-radious\"></div>\n<!-- 平行四边形 -->\n<style>\n#parallelogram {\n  width: 100px;\n  height: 70px;\n  -webkit-transform: skew(-20deg);\n  -moz-transform: skew(-20deg);\n  -o-transform: skew(-20deg);\n  -ms-transform: skew(-20deg);\n  transform: skew(-20deg);\n  background: red;\n  margin: 30px;\n}\n</style>\n<div id=\"parallelogram\"></div>\n<!-- 梯形 -->\n<style>\n#trapezoid-1 {\n  width: 100px;\n  height: 70px;\n  -webkit-transform: skew(-20deg);\n  -moz-transform: skew(-20deg);\n  -o-transform: skew(-20deg);\n  -ms-transform: skew(-20deg);\n  transform: skew(-20deg);\n  background: red;\n  margin: 30px;\n}\n\n#trapezoid-1:after {\n  content: '';\n  display: block;\n  width: 100px;\n  height: 70px;\n  background: red;\n  margin-left: 29px;\n  -webkit-transform: skew(40deg);\n  -moz-transform: skew(40deg);\n  -o-transform: skew(40deg);\n  -ms-transform: skew(40deg);\n  transform: skew(40deg);\n}\n</style>\n<div id=\"trapezoid-1\"></div>\n<style>\n#trapezoid-2 {\n  height: 0;\n  width: 100px;\n  border-bottom: 100px solid red;\n  border-left: 60px solid transparent;\n  border-right: 60px solid transparent;\n}\n</style>\n<div id=\"trapezoid-2\"></div>\n<style>\n#triangle-up {\n  height: 0;\n  width: 0;\n  border: 50px solid red;\n  border-color: transparent transparent red transparent;\n  margin: 30px;\n}\n</style>\n<div id=\"triangle-up\"></div>\n";
+	module.exports = "<!-- http://www.w3cplus.com/css/css-simple-shapes-cheat-sheet -->\r\n<!-- 椭圆 -->\r\n<style>\r\n#oval {\r\n  width: 200px;\r\n  height: 100px;\r\n  background: red;\r\n  -moz-border-radius: 100px / 50px;\r\n  -webkit-border-radius: 100px / 50px;\r\n  border-radius: 100px / 50px;\r\n}\r\n</style>\r\n<div id=\"oval\"></div>\r\n<style>\r\n#test-border-radious {\r\n  width: 200px;\r\n  height: 100px;\r\n  background: red;\r\n  /* 左上x，右上x，左下x，右下x / 左上y，右上y，左下y，右下y */\r\n  border-radius: 5px 50px 15px 20px / 120px 85px 50px 10px;\r\n}\r\n</style>\r\n<!-- http://www.w3cplus.com/css3/border-radius -->\r\n<div id=\"test-border-radious\"></div>\r\n<!-- 平行四边形 -->\r\n<style>\r\n#parallelogram {\r\n  width: 100px;\r\n  height: 70px;\r\n  -webkit-transform: skew(-20deg);\r\n  -moz-transform: skew(-20deg);\r\n  -o-transform: skew(-20deg);\r\n  -ms-transform: skew(-20deg);\r\n  transform: skew(-20deg);\r\n  background: red;\r\n  margin: 30px;\r\n}\r\n</style>\r\n<div id=\"parallelogram\"></div>\r\n<!-- 梯形 -->\r\n<style>\r\n#trapezoid-1 {\r\n  width: 100px;\r\n  height: 70px;\r\n  -webkit-transform: skew(-20deg);\r\n  -moz-transform: skew(-20deg);\r\n  -o-transform: skew(-20deg);\r\n  -ms-transform: skew(-20deg);\r\n  transform: skew(-20deg);\r\n  background: red;\r\n  margin: 30px;\r\n}\r\n\r\n#trapezoid-1:after {\r\n  content: '';\r\n  display: block;\r\n  width: 100px;\r\n  height: 70px;\r\n  background: red;\r\n  margin-left: 29px;\r\n  -webkit-transform: skew(40deg);\r\n  -moz-transform: skew(40deg);\r\n  -o-transform: skew(40deg);\r\n  -ms-transform: skew(40deg);\r\n  transform: skew(40deg);\r\n}\r\n</style>\r\n<div id=\"trapezoid-1\"></div>\r\n<style>\r\n#trapezoid-2 {\r\n  height: 0;\r\n  width: 100px;\r\n  border-bottom: 100px solid red;\r\n  border-left: 60px solid transparent;\r\n  border-right: 60px solid transparent;\r\n}\r\n</style>\r\n<div id=\"trapezoid-2\"></div>\r\n<style>\r\n#triangle-up {\r\n  height: 0;\r\n  width: 0;\r\n  border: 50px solid red;\r\n  border-color: transparent transparent red transparent;\r\n  margin: 30px;\r\n}\r\n</style>\r\n<div id=\"triangle-up\"></div>\r\n";
 
 /***/ }
 

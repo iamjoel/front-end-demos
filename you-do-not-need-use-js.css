@@ -1,0 +1,113 @@
+/* demo1 */
+
+.demo-1 {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.target {
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: green;
+  color: #fff;
+  -webkit-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.controller {
+  display: none;
+}
+
+.controller:checked + .target {
+  width: 300px;
+}
+/* demo2 */
+
+.demo-2 {
+  counter-reset: list 0;
+  margin-bottom: 10px;
+}
+
+.demo-2 .block {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.demo-2 .block:nth-child(1) {
+  background-color: red;
+}
+
+.demo-2 .block:nth-child(2) {
+  background-color: green;
+}
+
+.demo-2 .block input {
+  display: none;
+}
+
+.demo-2 .block input:checked {
+  display: block;
+  opacity: 0;
+  /* 必须显示。。。 */
+  counter-increment: list;
+}
+
+.demo-2 .result::after {
+  content: "\9009\62E9\4E86"counter(list)"\4E2A";
+}
+/*demo3*/
+
+.demo-3 .block {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  position: relative;
+}
+
+.demo-3 .block:nth-child(1) {
+  background-color: red;
+}
+
+.demo-3 .block:nth-child(2) {
+  background-color: green;
+}
+
+.demo-3 .block input {
+  display: none;
+}
+
+.demo-3 .result-wrap {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+.demo-3 .result {
+  position: absolute;
+  top: -80px;
+}
+
+.demo-3 .result-wrap input {
+  display: block;
+  height: 0;
+  margin: 0;
+  -webkit-transition: height 1s;
+  -o-transition: height 1s;
+  transition: height 1s;
+}
+
+.demo-3 .result__num,
+.demo-3 .result-wrap input:checked {
+  height: 40px;
+}
+
+/*# sourceMappingURL=you-do-not-need-use-js.css.map*/

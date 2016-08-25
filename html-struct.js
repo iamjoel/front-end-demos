@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "da147b73f231057430f9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 8;
+/******/ 			var chunkId = 9;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -578,22 +578,22 @@
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 22);
-	__webpack_require__(/*! ./index.js */ 23);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 26);
+	__webpack_require__(/*! ./index.js */ 27);
 
 /***/ },
 
-/***/ 22:
+/***/ 26:
 /*!*************************************!*\
   !*** ./demos/html-struct/demo.html ***!
   \*************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"html-struct\">\n  <label>在移动设备中使用\n    <input type=\"checkbox\" v-model=\"isInMobile\">\n  </label><br>\n  <label>用IE浏览页面时，让浏览器用本机上最新的IE渲染引擎\n    <input type=\"checkbox\" v-model=\"isUseLatest\">\n  </label>\n  <pre>\n    <code>\n    &lt;!DOCTYPE html&gt;\n    &lt;html lang=\"en\"&gt;\n      &lt;head&gt;\n        &lt;meta charset=\"UTF-8\"&gt;\n        &lt;title&gt;Document&lt;/title&gt;<template v-if=\"isInMobile\"><br><span  style=\"display: inline-block;text-indent: 5em;\">&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;</span></template><template v-if=\"isUseLatest\"><br><span  style=\"display: inline-block;text-indent: 5em;\">&lt;meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"&gt;</span></template>\n      &lt;/head&gt;\n      &lt;body&gt;\n        &lt;!--在页面中显示的主体内容 --&gt;\n        &lt;div&gt; sth &lt;/div&gt;\n      &lt;/body&gt;\n    &lt;/html&gt;\n    </code>\n  </pre>\n</div>\n";
+	module.exports = "<div class=\"html-struct\">\r\n  <label>在移动设备中使用\r\n    <input type=\"checkbox\" v-model=\"isInMobile\">\r\n  </label><br>\r\n  <label>用IE浏览页面时，让浏览器用本机上最新的IE渲染引擎\r\n    <input type=\"checkbox\" v-model=\"isUseLatest\">\r\n  </label>\r\n  <!-- <pre>\r\n    <code>\r\n    &lt;!DOCTYPE html&gt;\r\n    &lt;html lang=\"en\"&gt;\r\n      &lt;head&gt;\r\n        &lt;meta charset=\"UTF-8\"&gt;\r\n        &lt;title&gt;Document&lt;/title&gt;<template v-if=\"isInMobile\"><br><span  style=\"display: inline-block;text-indent: 5em;\">&lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"&gt;</span></template><template v-if=\"isUseLatest\"><br><span  style=\"display: inline-block;text-indent: 5em;\">&lt;meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"&gt;</span></template>\r\n      &lt;/head&gt;\r\n      &lt;body&gt;\r\n        &lt;!--在页面中显示的主体内容 --&gt;\r\n        &lt;div&gt; sth &lt;/div&gt;\r\n      &lt;/body&gt;\r\n    &lt;/html&gt;\r\n    </code>\r\n  </pre> -->\r\n  <pre>\r\n    <code>\r\n      {{html}}\r\n    </code>\r\n  </pre>\r\n</div>\r\n";
 
 /***/ },
 
-/***/ 23:
+/***/ 27:
 /*!************************************!*\
   !*** ./demos/html-struct/index.js ***!
   \************************************/
@@ -601,18 +601,25 @@
 
 	'use strict';
 	
-	var Vue = __webpack_require__(/*! vue */ 24);
+	var Vue = __webpack_require__(/*! vue */ 28);
 	new Vue({
 	  el: '.html-struct',
 	  data: {
 	    isInMobile: false,
 	    isUseLatest: false
+	  },
+	  computed: {
+	    html: function html() {
+	      var mobileMeta = this.isInMobile ? '<meta name="viewport" content="width=device-width, initial-scale=1">' : '';
+	      var useLatest = this.isUseLatest ? '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">' : '';
+	      return '<!DOCTYPE html>\n                <html lang="en">\n                <head>\n                  <meta charset="UTF-8">\n                  <title>Document</title>\n                  ' + mobileMeta + '\n                  ' + useLatest + '\n                  </head>\n                <body>\n                  <!--在页面中显示的主体内容 -->\n                  <div> sth </div>\n                </body>\n              </html>';
+	    }
 	  }
 	});
 
 /***/ },
 
-/***/ 24:
+/***/ 28:
 /*!**********************************!*\
   !*** ./~/vue/dist/vue.common.js ***!
   \**********************************/
@@ -10648,14 +10655,14 @@
 	}, 0);
 	
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(/*! ./~/process/browser.js */ 25)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(/*! (webpack)/~/node-libs-browser/~/process/browser.js */ 29)))
 
 /***/ },
 
-/***/ 25:
-/*!******************************!*\
-  !*** ./~/process/browser.js ***!
-  \******************************/
+/***/ 29:
+/*!**********************************************************!*\
+  !*** (webpack)/~/node-libs-browser/~/process/browser.js ***!
+  \**********************************************************/
 /***/ function(module, exports) {
 
 	// shim for using process in browser

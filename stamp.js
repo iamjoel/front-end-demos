@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 13;
+/******/ 			var chunkId = 15;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -571,114 +571,47 @@
 /******/ ({
 
 /***/ 0:
-/*!*********************************!*\
-  !*** ./demos/promise/loader.js ***!
-  \*********************************/
+/*!*******************************!*\
+  !*** ./demos/stamp/loader.js ***!
+  \*******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(/*! ./index.js */ 38);
-	// require('./jquery-deferred.js')
+	__webpack_require__(/*! ./style.css */ 44);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 46);
 
 /***/ },
 
-/***/ 38:
-/*!********************************!*\
-  !*** ./demos/promise/index.js ***!
-  \********************************/
+/***/ 44:
+/*!*******************************!*\
+  !*** ./demos/stamp/style.css ***!
+  \*******************************/
 /***/ function(module, exports) {
 
-	'use strict';
-	
-	function doThingGenerator(params) {
-	  var defaultParams = {
-	    aysn: true,
-	    successVal: '',
-	    failVal: '',
-	    isSuccess: true,
-	    useTime: 100
-	  };
-	
-	  params = Object.assign(defaultParams, params);
-	  return function () {
-	    return new Promise(function (resolve, reject) {
-	      if (params.aysn) {
-	        setTimeout(function () {
-	          if (params.isSuccess) {
-	            console.log('almost ' + params.successVal);
-	            resolve(params.successVal);
-	          } else {
-	            reject(params.failVal);
-	          }
-	        }, params.useTime);
-	      } else {
-	        if (params.isSuccess) {
-	          console.log('almost ' + params.successVal);
-	          resolve(params.successVal);
-	        } else {
-	          reject(params.failVal);
-	        }
-	      }
-	    });
-	  };
-	}
-	var doThing1 = doThingGenerator({
-	  successVal: 'thing1 done'
-	});
-	
-	var doThing2 = doThingGenerator({
-	  successVal: 'thing2 done',
-	  useTime: 200
-	});
-	
-	var doThing3 = doThingGenerator({
-	  successVal: 'thing3 done',
-	  useTime: 50
-	});
-	
-	doThing1().then(function (msg) {
-	  console.log(msg);
-	  return doThing2();
-	}).then(function (msg) {
-	  console.log(msg);
-	  return doThing3();
-	}).then(function (msg) {
-	  console.log(msg);
-	  console.log('***** 串行结束 ********');
-	
-	  Promise.all([doThing1(), doThing2(), doThing3()]).then(function (msgs) {
-	    console.log(msgs.join());
-	    console.log('***** 并行结束 ********');
-	
-	    var doThing1Fail = doThingGenerator({
-	      isSuccess: false,
-	      failVal: 'thing1 fail'
-	    });
-	    doThing1Fail().catch(function (msg) {
-	      console.log('catch fail: ' + msg);
-	      doThing1Fail().then(null, function () {
-	        console.log('catch fail in then: ' + msg);
-	        console.log('***** 失败处理结束 ********');
-	        var doThing1Sync = doThingGenerator({
-	          aysn: false,
-	          successVal: 'sync thing1 done'
-	        });
-	        var doThing2Sync = doThingGenerator({
-	          aysn: false,
-	          successVal: 'sync thing2 done'
-	        });
-	
-	        doThing1Sync().then(doThing2Sync).then(function (msg) {
-	          console.log(msg);
-	          console.log('***** Promise 同步结束 ********');
-	        });
-	      });
-	    });
-	  });
-	});
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 46:
+/*!*******************************!*\
+  !*** ./demos/stamp/demo.html ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<h2>用 box-shadow 实现</h2>\r\n<div class=\"target\">\r\n  <img src=\"" + __webpack_require__(/*! ./stamp.png */ 47) + "\"></div>\r\n</div>\r\n<!-- TODO 用 background-image + 渐变实现 -->\r\n";
+
+/***/ },
+
+/***/ 47:
+/*!*******************************!*\
+  !*** ./demos/stamp/stamp.png ***!
+  \*******************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "cd4344398563a3bd645da640c9f435de.png";
 
 /***/ }
 
 /******/ });
-//# sourceMappingURL=promise.js.map
+//# sourceMappingURL=stamp.js.map

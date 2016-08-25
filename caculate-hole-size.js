@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "da147b73f231057430f9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -591,7 +591,7 @@
   \********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<h1>算坑里能填多少水</h1>\n<img src=\"" + __webpack_require__(/*! ./target.jpg */ 6) + "\">\n";
+	module.exports = "<h1>算坑里能填多少水</h1>\r\n<img src=\"" + __webpack_require__(/*! ./target.jpg */ 6) + "\">\r\n";
 
 /***/ },
 /* 6 */

@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9a045b90ef3a8c4670d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "da147b73f231057430f9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 3;
+/******/ 			var chunkId = 4;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -577,8 +577,8 @@
 
 	'use strict';
 	
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 8);
-	__webpack_require__(/*! ./index.js */ 9);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 14);
+	__webpack_require__(/*! ./index.js */ 15);
 
 /***/ },
 /* 1 */,
@@ -10438,16 +10438,22 @@
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /*!************************************!*\
   !*** ./demos/count-time/demo.html ***!
   \************************************/
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"demo-item\">\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\n  <br>\n</div>\n<div class=\"demo-item\">\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\n</div>\n";
+	module.exports = "<div class=\"demo-item\">\r\n  <h2>普通用法</h2> 已计时间: <span class=\"count-time\"></span>\r\n  <a href=\"javascript:void(0)\" class=\"control-btn\">暂停</a>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时</h2> 还剩时间: <span class=\"count-time\"></span>\r\n  <br>\r\n</div>\r\n<div class=\"demo-item\">\r\n  <h2>倒计时 结束回调</h2> 还剩时间: <span class=\"count-time\"></span>\r\n</div>\r\n";
 
 /***/ },
-/* 9 */
+/* 15 */
 /*!***********************************!*\
   !*** ./demos/count-time/index.js ***!
   \***********************************/
@@ -10456,7 +10462,7 @@
 	'use strict';
 	
 	var $ = __webpack_require__(/*! jquery */ 3);
-	var CountTime = __webpack_require__(/*! ./count-time.js */ 10);
+	var CountTime = __webpack_require__(/*! ./count-time.js */ 16);
 	
 	$(document).ready(function () {
 	  var $demos = $('.demo-item')
@@ -10535,7 +10541,7 @@
 	});
 
 /***/ },
-/* 10 */
+/* 16 */
 /*!****************************************!*\
   !*** ./demos/count-time/count-time.js ***!
   \****************************************/

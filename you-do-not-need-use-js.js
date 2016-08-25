@@ -249,7 +249,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 13;
+/******/ 			var chunkId = 16;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -571,114 +571,37 @@
 /******/ ({
 
 /***/ 0:
-/*!*********************************!*\
-  !*** ./demos/promise/loader.js ***!
-  \*********************************/
+/*!************************************************!*\
+  !*** ./demos/you-do-not-need-use-js/loader.js ***!
+  \************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	__webpack_require__(/*! ./index.js */ 38);
-	// require('./jquery-deferred.js')
+	__webpack_require__(/*! ./style.css */ 48);
+	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 50);
 
 /***/ },
 
-/***/ 38:
-/*!********************************!*\
-  !*** ./demos/promise/index.js ***!
-  \********************************/
+/***/ 48:
+/*!************************************************!*\
+  !*** ./demos/you-do-not-need-use-js/style.css ***!
+  \************************************************/
 /***/ function(module, exports) {
 
-	'use strict';
-	
-	function doThingGenerator(params) {
-	  var defaultParams = {
-	    aysn: true,
-	    successVal: '',
-	    failVal: '',
-	    isSuccess: true,
-	    useTime: 100
-	  };
-	
-	  params = Object.assign(defaultParams, params);
-	  return function () {
-	    return new Promise(function (resolve, reject) {
-	      if (params.aysn) {
-	        setTimeout(function () {
-	          if (params.isSuccess) {
-	            console.log('almost ' + params.successVal);
-	            resolve(params.successVal);
-	          } else {
-	            reject(params.failVal);
-	          }
-	        }, params.useTime);
-	      } else {
-	        if (params.isSuccess) {
-	          console.log('almost ' + params.successVal);
-	          resolve(params.successVal);
-	        } else {
-	          reject(params.failVal);
-	        }
-	      }
-	    });
-	  };
-	}
-	var doThing1 = doThingGenerator({
-	  successVal: 'thing1 done'
-	});
-	
-	var doThing2 = doThingGenerator({
-	  successVal: 'thing2 done',
-	  useTime: 200
-	});
-	
-	var doThing3 = doThingGenerator({
-	  successVal: 'thing3 done',
-	  useTime: 50
-	});
-	
-	doThing1().then(function (msg) {
-	  console.log(msg);
-	  return doThing2();
-	}).then(function (msg) {
-	  console.log(msg);
-	  return doThing3();
-	}).then(function (msg) {
-	  console.log(msg);
-	  console.log('***** 串行结束 ********');
-	
-	  Promise.all([doThing1(), doThing2(), doThing3()]).then(function (msgs) {
-	    console.log(msgs.join());
-	    console.log('***** 并行结束 ********');
-	
-	    var doThing1Fail = doThingGenerator({
-	      isSuccess: false,
-	      failVal: 'thing1 fail'
-	    });
-	    doThing1Fail().catch(function (msg) {
-	      console.log('catch fail: ' + msg);
-	      doThing1Fail().then(null, function () {
-	        console.log('catch fail in then: ' + msg);
-	        console.log('***** 失败处理结束 ********');
-	        var doThing1Sync = doThingGenerator({
-	          aysn: false,
-	          successVal: 'sync thing1 done'
-	        });
-	        var doThing2Sync = doThingGenerator({
-	          aysn: false,
-	          successVal: 'sync thing2 done'
-	        });
-	
-	        doThing1Sync().then(doThing2Sync).then(function (msg) {
-	          console.log(msg);
-	          console.log('***** Promise 同步结束 ********');
-	        });
-	      });
-	    });
-	  });
-	});
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 50:
+/*!************************************************!*\
+  !*** ./demos/you-do-not-need-use-js/demo.html ***!
+  \************************************************/
+/***/ function(module, exports) {
+
+	module.exports = "<!-- https://github.com/NamPNQ/You-Dont-Need-Javascript -->\n<!-- label 被点击时候，会切换子元素 checkbox的选中状态。 label + checkbox 和 +/~ 选择器 -->\n<label class=\"demo-1\">\n  <input type=\"checkbox\" class=\"controller\">\n  <div class=\"target\">\n    点我\n  </div>\n</label>\n<div class=\"demo-2\">\n  <label class=\"block\">\n    <input type=\"checkbox\">\n  </label>\n  <label class=\"block\">\n    <input type=\"checkbox\">\n  </label>\n  <div class=\"result\"></div>\n</div>\n<div class=\"demo-3\">\n  <label class=\"block\">\n    <input type=\"radio\" name=\"group1\">\n  </label>\n  <label class=\"block\">\n    <input type=\"radio\" name=\"group2\">\n  </label>\n  <div class=\"result-wrap\">\n    <div class=\"result\">\n      <input type=\"radio\" name=\"group1\" checked>\n      <input type=\"radio\" name=\"group2\" checked>\n      <div class=\"result__num\">点击过0个</div>\n      <div class=\"result__num\">点击过1个</div>\n      <div class=\"result__num\">点击过2个</div>\n    </div>\n  </div>\n";
 
 /***/ }
 
 /******/ });
-//# sourceMappingURL=promise.js.map
+//# sourceMappingURL=you-do-not-need-use-js.js.map

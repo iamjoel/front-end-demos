@@ -1,4 +1,27 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	var parentJsonpFunction = window["webpackJsonp"];
+/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules) {
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, callbacks = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId])
+/******/ 				callbacks.push.apply(callbacks, installedChunks[chunkId]);
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			modules[moduleId] = moreModules[moduleId];
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
+/******/ 		while(callbacks.length)
+/******/ 			callbacks.shift().call(null, __webpack_require__);
+/******/ 		if(moreModules[0]) {
+/******/ 			installedModules[0] = 0;
+/******/ 			return __webpack_require__(0);
+/******/ 		}
+/******/ 	};
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
 /******/ 	this["webpackHotUpdate"] = 
 /******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
@@ -54,7 +77,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "da147b73f231057430f9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8b1749cd694356bb8687"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -249,7 +272,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 6;
+/******/ 			for(var chunkId in installedChunks)
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -524,6 +547,13 @@
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// "0" means "already loaded"
+/******/ 	// Array means "loading", array contains callbacks
+/******/ 	var installedChunks = {
+/******/ 		6:0
+/******/ 	};
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -551,6 +581,29 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
+/******/ 		// "0" is the signal for "already loaded"
+/******/ 		if(installedChunks[chunkId] === 0)
+/******/ 			return callback.call(null, __webpack_require__);
+/******/
+/******/ 		// an array means "currently loading".
+/******/ 		if(installedChunks[chunkId] !== undefined) {
+/******/ 			installedChunks[chunkId].push(callback);
+/******/ 		} else {
+/******/ 			// start chunk loading
+/******/ 			installedChunks[chunkId] = [callback];
+/******/ 			var head = document.getElementsByTagName('head')[0];
+/******/ 			var script = document.createElement('script');
+/******/ 			script.type = 'text/javascript';
+/******/ 			script.charset = 'utf-8';
+/******/ 			script.async = true;
+/******/
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"count-time","1":"css-layout","2":"css-playground","3":"es6-test","4":"html-tag-and-attr","5":"index","7":"promise"}[chunkId]||chunkId) + ".js";
+/******/ 			head.appendChild(script);
+/******/ 		}
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -568,23 +621,8 @@
 /******/ 	return hotCreateRequire(0)(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
-/*!****************************************!*\
-  !*** ./demos/css-playground/loader.js ***!
-  \****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	__webpack_require__(/*! ./style.css */ 20);
-	document.querySelector('#main').innerHTML = __webpack_require__(/*! ./demo.html */ 22);
-	__webpack_require__(/*! ./index.js */ 23);
-
-/***/ },
-
-/***/ 3:
+/******/ ([
+/* 0 */
 /*!*********************************!*\
   !*** ./~/jquery/dist/jquery.js ***!
   \*********************************/
@@ -10434,116 +10472,6 @@
 	}));
 
 
-/***/ },
-
-/***/ 20:
-/*!****************************************!*\
-  !*** ./demos/css-playground/style.css ***!
-  \****************************************/
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 22:
-/*!****************************************!*\
-  !*** ./demos/css-playground/demo.html ***!
-  \****************************************/
-/***/ function(module, exports) {
-
-	module.exports = "<style id=\"target-style\"></style>\r\n<!-- Inspired by http://css3please.com/ -->\r\n<div class=\"container\">\r\n  <h1 class=\"title\">CSS Playground</h1>\r\n  <div class=\"css\">\r\n    <span class=\"selector\">.target</span><span class=\"bracket\">{</span>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">5px</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span> solid\r\n      <span class=\"editable\">\r\n            <span class=\"editable-text\">#800080</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 边框 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">border-radius</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">15%</span>\r\n      <input type=\"text\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 圆角 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">background</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ff8000</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 背景 */</span>\r\n    </div>\r\n    <div class=\"rule\">\r\n      <span class=\"property\">color</span>:\r\n      <span class=\"value\">\r\n          <span class=\"editable\">\r\n            <span class=\"editable-text\">#ffffff</span>\r\n      <input type=\"color\" class=\"editable-value\">\r\n      </span>\r\n      </span>;<span class=\"comment\">/* 字的颜色 */</span>\r\n    </div>\r\n    <span class=\"bracket\">}</span>\r\n  </div>\r\n</div>\r\n<div class=\"target\">Taget</div>\r\n";
-
-/***/ },
-
-/***/ 23:
-/*!***************************************!*\
-  !*** ./demos/css-playground/index.js ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var $ = __webpack_require__(/*! jquery */ 3);
-	$(document).ready(function () {
-	  // 新增属性,删除属性,值的 autocomplate
-	  var init = function init() {
-	    // 输入框同步显示的文本的值
-	    $('.editable-text').each(function () {
-	      var $this = $(this);
-	      var value = $this.text();
-	      // if(tol)
-	      $this.next('.editable-value').val(value);
-	    });
-	    registerEvent();
-	    render();
-	  };
-	  var render = function render() {
-	    var $targetStyle = $('#target-style');
-	    var style = '.target{\n        ' + gatherStyleRules() + '\n      }';
-	    $targetStyle.html(style);
-	  };
-	  var gatherStyleRules = function gatherStyleRules() {
-	    var styleArr = [];
-	    $('.rule').each(function () {
-	      var $this = $(this);
-	      var property = $this.find('.property').text();
-	      var value = $this.find('.value').text().replace(/( )+/g, ' ').replace(/\n/g, '') + '';
-	      styleArr.push(property + ':' + value + ';');
-	    });
-	    return styleArr.join('\n');
-	  };
-	
-	  var registerEvent = function registerEvent() {
-	    $('.editable').click(function () {
-	      var $this = $(this);
-	      $this.addClass('edit');
-	    });
-	    var $editableInput = $('.editable-value');
-	    $editableInput.filter('[type=text]').blur(function () {
-	      $(this).closest('.editable').removeClass('edit');
-	    }).keyup(function (event) {
-	      var $this = $(this);
-	      var $editText = $this.prev('.editable-text');
-	      event.preventDefault();
-	      // 上 或 下
-	      if (event.which === 38 || event.which === 40) {
-	        var addNum = event.which === 38 ? 1 : -1;
-	        var vaule = tools.addNumberVal($this.val(), addNum);
-	        $this.val(vaule);
-	        $editText.text(vaule);
-	      } else {
-	        $editText.text($this.val());
-	      }
-	      render();
-	    });
-	
-	    $editableInput.filter('[type=color]').change(function () {
-	      var $this = $(this);
-	      var value = $this.val();
-	      var $editText = $this.prev('.editable-text');
-	      $editText.text(value);
-	      render();
-	      $this.closest('.editable').removeClass('edit');
-	    });
-	  };
-	
-	  var tools = {
-	    addNumberVal: function addNumberVal(numVal, addVal) {
-	      if (!isNaN(numVal)) {
-	        return numVal;
-	      }
-	      var num = (numVal + '').indexOf('.') > -1 ? parseFloat(numVal) : parseInt(numVal);
-	      num = num + addVal;
-	      var unit = /[a-zA-Z%]+/.exec(numVal)[0];
-	      return num + unit;
-	    }
-	  };
-	
-	  init();
-	});
-
 /***/ }
-
-/******/ });
-//# sourceMappingURL=css-playground.js.map
+/******/ ]);
+//# sourceMappingURL=jquery.js.map
