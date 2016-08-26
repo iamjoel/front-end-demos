@@ -5,14 +5,19 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var fs = require('fs')
 
+function isProduction() {
+  return (process.env.NODE_ENV && process.env.NODE_ENV.trim()) === 'production'
+}
+
 var webpackConfig = {
-  devtool: 'eval-source-map',
+  devtool: isProduction()?null:'source-map',
   entry: {
   },
   output: {
     'path': 'dist',
     filename: '[name].js',
-    trunkFilename: '[name].bundle.js'
+    trunkFilename: '[name].bundle.js',
+    publicPath: isProduction() ? '' : 'http://localhost:5001',
   },
   module: {
     preLoaders: [
@@ -48,6 +53,7 @@ var webpackConfig = {
     configFile: '.eslintrc'
   }
 }
+
 
 /*
 读 demos 下第一层目录
