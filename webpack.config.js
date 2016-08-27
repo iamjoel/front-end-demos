@@ -4,6 +4,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var fs = require('fs')
+var autoprefixer = require('autoprefixer')
 
 function isProduction() {
   return (process.env.NODE_ENV && process.env.NODE_ENV.trim()) === 'production'
@@ -31,12 +32,15 @@ var webpackConfig = {
       loader: 'file?hash=sha512&digest=hex&name=[hash].[ext]'
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      loader: ExtractTextPlugin.extract('style-loader', ['css', 'postcss'])
     }, {
       test: /\.js$/,
       exclude: /node_modules|dist/,
       loader: 'babel-loader'
     }]
+  },
+  postcss: function () {
+    return [autoprefixer];
   },
   plugins: [
     new ExtractTextPlugin('[name].css'),
@@ -53,7 +57,6 @@ var webpackConfig = {
     configFile: '.eslintrc'
   }
 }
-
 
 /*
 读 demos 下第一层目录

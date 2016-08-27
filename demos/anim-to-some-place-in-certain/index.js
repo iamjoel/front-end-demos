@@ -22,7 +22,7 @@ function move (opts) {
   var pos = posArr[i]
   $el.animate({
     left: pos.left,
-    top: pos.top,
+    top: pos.top
   }, duration, function () {
     if (posArr.length - 1 !== i) {
       move({
