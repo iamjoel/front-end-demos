@@ -17,7 +17,7 @@ var webpackConfig = {
     'path': 'dist',
     filename: '[name].js',
     trunkFilename: '[name].bundle.js',
-    publicPath: isProduction() ? '' : 'http://localhost:5001',
+    // publicPath: isProduction() ? '' : 'http://localhost:5001', // 设置的不对会影响 开发和发布。。。
   },
   module: {
     preLoaders: [

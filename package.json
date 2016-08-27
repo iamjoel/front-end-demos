@@ -4,10 +4,10 @@
   "description": "frontend demos",
   "main": "index.html",
   "scripts": {
-    "start:develop-server": "node_modules/.bin/webpack-dev-server --inline --hot --host 0.0.0.0 --port 5001",
+    "start:develop-server": "node_modules/.bin/webpack-dev-server --inline --hot  --progress --colors --host 0.0.0.0 --port 5001",
     "watch:scss": "sass --watch demos",
     "set-product": "node_modules/.bin/cross-env nodeenv=production",
-    "build:js": "node_modules/.bin/webpack -p",
+    "build:js": "node_modules/.bin/webpack -p --progress --colors",
     "build": "node_modules/.bin/cross-env NODE_ENV=production npm run build:js",
     "dev": "node_modules/.bin/npm-run-all --parallel start:develop-server watch:scss",
     "ph-to-gh-pages": "node publish",
