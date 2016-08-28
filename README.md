@@ -3,6 +3,12 @@
 
 存放前端的 Demos。
 
+本项目支持
+* 只需写必要的代码。具体见[这里](#not-needed-code)。
+* 在 CSS 中不用写浏览器前缀。前缀由 [Autoprefixer](https://github.com/postcss/autoprefixer)。
+* 在 CSS 中可以用类似 Sass 的写法。具体见 [precss](https://github.com/jonathantneal/precss)。
+
+## <a name="not-needed-code">只需写必要的代码</a>
 得益于 webpack 及 HtmlWebpackPlugin 等插件，在本项目中写 Demo，可避免写一些重复的代码。如以前这么写 Demo
 ```
 <!DOCTYPE html>

@@ -5,14 +5,26 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var fs = require('fs')
 var autoprefixer = require('autoprefixer')
+var precss = require('precss')
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 function isProduction() {
   return (process.env.NODE_ENV && process.env.NODE_ENV.trim()) === 'production'
 }
 
+var webpackPlugins = [
+  new ExtractTextPlugin('[name].css'),
+  new CommonsChunkPlugin("vendors", 'vendors.js')
+]
+if(!isProduction()){
+  webpackPlugins.push(new webpack.HotModuleReplacementPlugin())// hotreload
+}
+
 var webpackConfig = {
   devtool: isProduction()?null:'source-map',
   entry: {
+    vendors: ["jquery", "vue"],
+    empty: './empty.js'
   },
   output: {
     'path': 'dist',
@@ -40,12 +52,9 @@ var webpackConfig = {
     }]
   },
   postcss: function () {
-    return [autoprefixer];
+    return [autoprefixer, precss];
   },
-  plugins: [
-    new ExtractTextPlugin('[name].css'),
-    new webpack.HotModuleReplacementPlugin() // hotreload
-  ],
+  plugins: webpackPlugins,
   resolve: {
     alias: {}
   },
@@ -78,6 +87,8 @@ var init = (webpackConfig) => {
 var addConfig = (demoFolderName, hasCSS) => {
   var entry = {}
   entry[demoFolderName] = `${srcPrefix}${demoFolderName}/loader.js`
+  jsArr = ['vendors.js']
+  jsArr.push(`${demoFolderName}.js`)
   return {
     entry: entry,
     html: new HtmlWebpackPlugin({
@@ -87,7 +98,7 @@ var addConfig = (demoFolderName, hasCSS) => {
       cache: false,
       // For details on `!!` see https://webpack.github.io/docs/loaders.html#loader-order
       template: '!!ejs!templates/normal.html',
-      js: [`${demoFolderName}.js`],
+      js: jsArr,
       css: hasCSS ? [`${demoFolderName}.css`] : false
     })
   }
