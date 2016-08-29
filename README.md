@@ -45,6 +45,8 @@ Demo的 HTML 内容
 
 由 webpack 将这些内容拼成一个完整的 HTML。
 
+执行 ``
+
 ## 目录结构
 * `demos`: 存放 demo 的源码。
 * `dist`: demo 的生成码。
@@ -58,9 +60,9 @@ Demo的 HTML 内容
 
 ## 命令
 * `npm i`: 安装依赖。
-* `npm run dev` 写 Demos 时使用：会启动静态服务器，支持 hot reload。执行完该命令后，在浏览器中打开 `127.0.0.1:5001` 访问。
-* `npm run publish` Demos 写好时使用。会构建生成目标代码，并发布到项目的 gh-pages 分支。
-* `npm run create -- --name demo名称`。创建一个 demo。
+* `npm run dev`: 写 demos 时使用：会启动静态服务器，支持 hot reload。执行完该命令后，在浏览器中打开 `127.0.0.1:5001` 访问。
+* `npm run publish`: demos 写好时使用。会构建生成目标代码，并发布到项目的 gh-pages 分支。
+* `npm run create -- --name demo名称`： 创建一个 demo。参数 `type` 指定要创建哪些文件。
 
 * 更多命令见 `package.json` 中定义的 `scripts`。
 
