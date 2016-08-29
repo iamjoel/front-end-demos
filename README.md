@@ -60,6 +60,8 @@ Demo的 HTML 内容
 * `npm i`: 安装依赖。
 * `npm run dev` 写 Demos 时使用：会启动静态服务器，支持 hot reload。执行完该命令后，在浏览器中打开 `127.0.0.1:5001` 访问。
 * `npm run publish` Demos 写好时使用。会构建生成目标代码，并发布到项目的 gh-pages 分支。
+* `npm run create -- --name demo名称`。创建一个 demo。
+
 * 更多命令见 `package.json` 中定义的 `scripts`。
 
 ## 代码风格

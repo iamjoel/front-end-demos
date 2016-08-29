@@ -21,10 +21,9 @@ if(!isProduction()){
 }
 
 var webpackConfig = {
-  devtool: isProduction()?null:'source-map',
+  devtool: isProduction() ? null:'source-map',
   entry: {
-    vendors: ["jquery", "vue"],
-    empty: './empty.js'
+    vendors: ["jquery", "vue"]
   },
   output: {
     'path': 'dist',
@@ -47,7 +46,7 @@ var webpackConfig = {
       loader: ExtractTextPlugin.extract('style-loader', ['css', 'postcss'])
     }, {
       test: /\.js$/,
-      exclude: /node_modules|dist/,
+      exclude: /node_modules|dist|create-demo\.js/,
       loader: 'babel-loader'
     }]
   },
