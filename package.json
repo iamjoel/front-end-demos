@@ -9,11 +9,11 @@
     "build:js": "node_modules/.bin/webpack -p --progress --colors",
     "build": "node_modules/.bin/cross-env NODE_ENV=production npm run build:js",
     "dev": "node_modules/.bin/npm-run-all --parallel start:develop-server",
-    "ph-to-gh-pages": "node publish",
+    "ph-to-gh-pages": "node tools/publish",
     "publish": "npm run build && npm run ph-to-gh-pages",
     "preview": "node_modules/.bin/npm-run-all build start:static",
     "start:static": "node_modules/.bin/anywhere -d dist 5002",
-    "create": "node create-demo"
+    "create": "node tools/create-demo"
   },
   "author": "Joel",
   "repository": {
