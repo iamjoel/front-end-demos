@@ -2,6 +2,7 @@
   "extends": "standard",
   "rules": {
     "no-new": "off",
-    "max-params": ["warn", 3]
+    "max-params": ["warn", 3],
+    "no-debugger": "warn"
   }
 }

@@ -6,7 +6,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var fs = require('fs')
 var autoprefixer = require('autoprefixer')
 var precss = require('precss')
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin")
 
 function isProduction() {
   return (process.env.NODE_ENV && process.env.NODE_ENV.trim()) === 'production'

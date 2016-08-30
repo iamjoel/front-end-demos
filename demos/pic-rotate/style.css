@@ -1,0 +1,24 @@
+.target-wrap{
+  margin: 0 auto;
+  width: 900px;
+}
+.img-wrap{
+  height: 400px;
+  background: yellow;
+}
+
+.target {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.target-left-control {
+  float: left;
+}
+
+.target-right-control {
+  float: right;
+}

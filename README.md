@@ -45,7 +45,7 @@ Demo的 HTML 内容
 
 由 webpack 将这些内容拼成一个完整的 HTML。
 
-执行 `npm run create -- --name demo名称` 可以生成demo的基本结构。
+执行 `npm run create -- --name demo名称` 可以生成 demo 的基本结构。
 
 ## 目录结构
 * `demos`: 存放 demo 的源码。
@@ -62,9 +62,9 @@ Demo的 HTML 内容
 * `npm i`: 安装依赖。
 * `npm run dev`: 写 demos 时使用:会启动静态服务器，支持 hot reload。执行完该命令后，在浏览器中打开 `127.0.0.1:5001` 访问。
 * `npm run publish`: demos 写好时使用。会构建生成目标代码，并发布到项目的 gh-pages 分支。
-* `npm run create -- --name demo名称`： 创建一个 demo。
-  * 参数 `name`: demo名称。必须输入。
-  * 参数 `type`: 指定要创建哪些文件，文件有 `html`, `css` 和 `js`。创建多个类型用 `,` 分隔。默认值是 `html,css,js`　
+* `npm run create -- --name demo名称`： 创建一个 demo。参数有
+  * `name`: demo名称。必须输入。
+  * `type`: 指定要创建哪些文件，文件有 `html`, `css` 和 `js`。创建多个类型用 `,` 分隔。默认值是 `html,css,js`　
 * 更多命令见 `package.json` 中定义的 `scripts`。
 
 ## 代码风格
