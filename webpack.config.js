@@ -55,7 +55,8 @@ var webpackConfig = {
   },
   plugins: webpackPlugins,
   resolve: {
-    alias: {}
+    alias: {
+    }
   },
   devServer: { // hotreload
     contentBase: './dist',
@@ -86,8 +87,9 @@ var init = (webpackConfig) => {
 var addConfig = (demoFolderName, hasCSS) => {
   var entry = {}
   entry[demoFolderName] = `${srcPrefix}${demoFolderName}/loader.js`
-  jsArr = ['vendors.js']
+  var jsArr = ['vendors.js'] // TODO
   jsArr.push(`${demoFolderName}.js`)
+  var cssArr = [`${demoFolderName}.css`]
   return {
     entry: entry,
     html: new HtmlWebpackPlugin({
@@ -98,7 +100,7 @@ var addConfig = (demoFolderName, hasCSS) => {
       // For details on `!!` see https://webpack.github.io/docs/loaders.html#loader-order
       template: '!!ejs!templates/normal.html',
       js: jsArr,
-      css: hasCSS ? [`${demoFolderName}.css`] : false
+      css: hasCSS ? cssArr : false
     })
   }
 }
