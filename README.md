@@ -61,6 +61,7 @@ Demo的 HTML 内容
 ## 命令
 * `npm i`: 安装依赖。
 * `npm run dev`: 写 demos 时使用:会启动静态服务器，支持 hot reload。执行完该命令后，在浏览器中打开 `127.0.0.1:5001` 访问。
+* `npm run dev:1`: 运行一个 demo。 demo 名字在 `webpack.config.one.js` 中设置变量 `DEMO_FOLD_NAME`。
 * `npm run publish`: demos 写好时使用。会构建生成目标代码，并发布到项目的 gh-pages 分支。
 * `npm run create -- --name demo名称`： 创建一个 demo。参数有
   * `name`: demo名称。必须输入。
