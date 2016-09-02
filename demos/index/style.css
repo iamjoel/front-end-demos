@@ -3,6 +3,7 @@ body {
   width: 80%;
 }
 #title {
+  position: relative;
   margin: 0 0 20px 0;
   $title-height: 300px;
   height: 300px;
