@@ -65,19 +65,29 @@ new Vue({
   },
   filters: {
     filterDemos () {
-      if (this.filterTags.length === 0) {
-        return this.demos
-      }
-      var res = this.demos.filter(function (demo) {
-        var isInclude = false
-        demo.tags.forEach(function (tagId) {
-          if (this.filterTags.indexOf(tagId) > -1) {
-            isInclude = true
-          }
+      var res
+      if (this.filterTags.length > 0) {
+        res = this.demos.filter(function (demo) {
+          var isInclude = false
+          demo.tags.forEach(function (tagId) {
+            if (this.filterTags.indexOf(tagId) > -1) {
+              isInclude = true
+            }
+          }.bind(this))
+          return isInclude
         }.bind(this))
-        return isInclude
-      }.bind(this))
+      } else {
+        // 复制
+        res = this.demos.map((demo) => {
+          return demo
+        })
+      }
+
+      res.sort((a, b) => {
+        return a.name.length - b.name.length
+      })
       return res
     }
   }
 })
+

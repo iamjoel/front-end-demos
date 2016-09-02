@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'index'
+const DEMO_FOLD_NAME = 'click-btn-loading'
 
 var path = require('path')
 var srcPrefix = './demos/'

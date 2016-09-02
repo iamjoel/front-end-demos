@@ -1,0 +1,50 @@
+.btn {
+  display: inline-block;
+  height: 3.2rem;
+  padding: .7rem 1.5rem;
+  border: 0.1rem solid #5764c6;
+  background-color: transparent;
+  border-radius: .3rem;
+  color: #5764c6;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: none;
+  outline: 0;
+  &--loading {
+    min-height: 1.6rem;
+    position: relative;
+    pointer-events: none;
+    color: transparent !important;
+    &:after {
+      border: 0.2rem solid #5764c6;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      border-radius: .8rem;
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -0.8rem;
+      margin-top: -0.8rem;
+      display: block;
+      width: 1.6rem;
+      height: 1.6rem;
+      animation: loading 500ms infinite linear;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

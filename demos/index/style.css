@@ -49,9 +49,9 @@ $main-color: #A1CF5F;
       line-height: 1.2;
       text-decoration: none;
       color: #333;
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid $main-color;
       &:hover {
-        border-bottom-color: $main-color;
+        color: $main-color;
       }
     }
   }

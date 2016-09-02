@@ -4,6 +4,7 @@ var tags = {
   ES6: 'ES6',
   HTML5: 'HTML5',
   ALG: '算法',
+  VUE: 'vue',
   OTHERS: '其他'
 }
 
@@ -69,6 +70,10 @@ var data = [{
   name: '图片旋转:在旋转过程中在不变形，宽高不超出父元素',
   loc: 'pic-rotate',
   tags: [tags.EFFECT]
+}, {
+  name: '按钮点击后，显示 Loading',
+  loc: 'click-btn-loading',
+  tags: [tags.VUE, tags.EFFECT]
 }]
 // CSS 图形 TODO
 module.exports = {tags, data}
