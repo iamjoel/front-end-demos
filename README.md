@@ -45,7 +45,7 @@ Demo的 HTML 内容
 
 由 webpack 将这些内容拼成一个完整的 HTML。
 
-执行 `npm run create -- --name demo名称` 可以生成 demo 的基本结构。
+更方便的方法是，执行 `npm run create -- --name demo名称` 就可以生成 demo 的基本结构。
 
 ## 目录结构
 * `demos`: 存放 demo 的源码。
@@ -68,7 +68,7 @@ Demo的 HTML 内容
   * `type`: 指定要创建哪些文件，文件有 `html`, `css` 和 `js`。创建多个类型用 `,` 分隔。默认值是 `html,css,js`　
 * 更多命令见 `package.json` 中定义的 `scripts`。
 
-## 代码风格
-本项目的 JavaScript 的代码风格是在 [JavaScript Standard Style](http://standardjs.com/index.html) 的基础上做的小修改。
+## 代码规范(Style Guide)
+本项目的 JavaScript 的代码规范是在 [JavaScript Standard Style](http://standardjs.com/index.html) 的基础上做的小修改。
 
 Sublime 上有对应的格式化插件 [Standard Format](https://packagecontrol.io/packages/StandardFormat)。
