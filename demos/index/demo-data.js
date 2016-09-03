@@ -60,7 +60,7 @@ var data = [{
   loc: 'promise',
   tags: [tags.ES6]
 }, {
-  name: '在固定时间内，以动画的形式，经过若个点，移动到指定位置',
+  name: '以动画的形式，经过若个点，移动到指定位置',
   loc: 'anim-to-some-place-in-certain'
 }, {
   name: '算坑可以填多少水',
