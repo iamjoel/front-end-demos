@@ -1,0 +1,1 @@
+.container{width:200px;height:300px;margin:50px auto;overflow-y:auto}.item{height:70px;line-height:70px;background-color:blue;color:#fff;text-align:center;margin-top:10px}.item:first-child{margin-top:0}.loading{text-align:center;height:30px;line-height:30px}
