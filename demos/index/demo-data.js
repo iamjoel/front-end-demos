@@ -89,6 +89,10 @@ var data = [{
   name: '签到效果 3D',
   loc: 'signin-3d',
   tags: [tags.EFFECT]
+},{
+  name: '耗时函数被短时间频繁调用时，防浏览器卡死的方法',
+  loc: 'throttle'
 }]
+
 // CSS 图形 TODO
 module.exports = {tags, data}
