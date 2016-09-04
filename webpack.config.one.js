@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'shopping-cart'
+const DEMO_FOLD_NAME = 'signin'
 
 var path = require('path')
 var srcPrefix = './demos/'

@@ -81,6 +81,14 @@ var data = [{
 }, {
   name: '购物',
   loc: 'shopping-cart'
+},{
+  name: '签到效果',
+  loc: 'signin',
+  tags: [tags.EFFECT]
+},{
+  name: '签到效果 3D',
+  loc: 'signin-3d',
+  tags: [tags.EFFECT]
 }]
 // CSS 图形 TODO
 module.exports = {tags, data}
