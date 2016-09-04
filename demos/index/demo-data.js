@@ -67,6 +67,10 @@ var data = [{
   loc: 'caculate-hole-size',
   tags: [tags.ALG]
 }, {
+  name: '下滑无限加载',
+  loc: 'infinate-scroll',
+  tags: [tags.EFFECT]
+},{
   name: '图片旋转:在旋转过程中在不变形，宽高不超出父元素',
   loc: 'pic-rotate',
   tags: [tags.EFFECT]

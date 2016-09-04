@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'click-btn-loading'
+const DEMO_FOLD_NAME = 'infinate-scroll'
 
 var path = require('path')
 var srcPrefix = './demos/'
