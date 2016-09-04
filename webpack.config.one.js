@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'infinate-scroll'
+const DEMO_FOLD_NAME = 'shopping-cart'
 
 var path = require('path')
 var srcPrefix = './demos/'

@@ -78,6 +78,9 @@ var data = [{
   name: '按钮点击后，显示 Loading',
   loc: 'click-btn-loading',
   tags: [tags.VUE, tags.EFFECT]
+}, {
+  name: '购物',
+  loc: 'shopping-cart'
 }]
 // CSS 图形 TODO
 module.exports = {tags, data}
