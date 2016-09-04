@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'signin'
+const DEMO_FOLD_NAME = 'signin-3d'
 
 var path = require('path')
 var srcPrefix = './demos/'
