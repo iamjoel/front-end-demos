@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'throttle'
+const DEMO_FOLD_NAME = 'index'
 
 var path = require('path')
 var srcPrefix = './demos/'

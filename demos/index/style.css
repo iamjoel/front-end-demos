@@ -2,6 +2,12 @@ body {
   margin: 0 auto;
   width: 80%;
 }
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
 #title {
   position: relative;
   margin: 0 0 20px 0;
@@ -9,7 +15,7 @@ body {
   height: 300px;
   line-height: 300px;
   color: #fff;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
   background: url(cover.jpg) center center no-repeat;
   background-size: cover;

@@ -70,7 +70,7 @@ var data = [{
   name: '下滑无限加载',
   loc: 'infinate-scroll',
   tags: [tags.EFFECT]
-},{
+}, {
   name: '图片旋转:在旋转过程中在不变形，宽高不超出父元素',
   loc: 'pic-rotate',
   tags: [tags.EFFECT]
@@ -81,15 +81,15 @@ var data = [{
 }, {
   name: '购物',
   loc: 'shopping-cart'
-},{
+}, {
   name: '签到效果',
   loc: 'signin',
   tags: [tags.EFFECT]
-},{
+}, {
   name: '签到效果 3D',
   loc: 'signin-3d',
   tags: [tags.EFFECT]
-},{
+}, {
   name: '耗时函数被短时间频繁调用时，防浏览器卡死的方法',
   loc: 'throttle'
 }]
