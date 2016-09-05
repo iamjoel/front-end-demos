@@ -92,6 +92,10 @@ var data = [{
 }, {
   name: '耗时函数被短时间频繁调用时，防浏览器卡死的方法',
   loc: 'throttle'
+}, {
+  name: '翻转效果',
+  loc: 'flip',
+  tags: [tags.EFFECT]
 }]
 
 // CSS 图形 TODO

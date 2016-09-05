@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'index'
+const DEMO_FOLD_NAME = 'flip'
 
 var path = require('path')
 var srcPrefix = './demos/'

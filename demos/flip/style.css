@@ -1,0 +1,33 @@
+.block {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: #333;
+  background-color: #ff0;
+}
+
+.block-back {
+  background-color: #f00;
+}
+
+.anim {
+  animation: rotate .5s both;
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+}
