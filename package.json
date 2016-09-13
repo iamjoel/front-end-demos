@@ -22,7 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "jquery": "2.2.3",
-    "vue": "1.0.24"
+    "vue": "1.0.24",
+    "vue-router": "0.7.13"
   },
   "devDependencies": {
     "anywhere": "1.2.0",

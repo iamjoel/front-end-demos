@@ -1,0 +1,11 @@
+<div id="app">
+  <h2>ES6 demos</h2>
+  <p><small>输出见控制台</small></p>
+  <ul class="nav">
+    <li v-link="{ path: '/template-str', activeClass: 'nav__item--active' }" class="nav__item">模板字符串</li>
+    <li v-link="{ path: '/promise', activeClass: 'nav__item--active' }" class="nav__item">Promise</li>
+  </ul>
+  <div class="content">
+    <router-view></router-view>
+  </div>
+</div>

@@ -56,8 +56,8 @@ var data = [{
   loc: 'dnd-and-sortable',
   tags: [tags.LEANRN_DEMO, tags.HTML5]
 }, {
-  name: 'Promise',
-  loc: 'promise',
+  name: 'ES6',
+  loc: 'es6',
   tags: [tags.ES6]
 }, {
   name: '以动画的形式，经过若个点，移动到指定位置',
