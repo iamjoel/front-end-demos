@@ -1,1 +1,1 @@
-webpackJsonp([1],{15:function(e,o,n){"use strict";var t=n(2),c=t.extend({ready:function(){var e="Joel",o="Hello I'm "+e;console.log(o)}});e.exports=c}});
+webpackJsonp([1],{13:function(e,a){"use strict";Object.defineProperty(a,"__esModule",{value:!0});var n="a",t=function(){var e=arguments.length<=0||void 0===arguments[0]?"Joel":arguments[0];console.log("Hi, I am "+e)};a.packageName=n,a.greetFn=t},19:function(e,a,n){"use strict";var t=n(13);(0,t.greetFn)(),(0,t.greetFn)(t.packageName)}});

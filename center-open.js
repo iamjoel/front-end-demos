@@ -1,1 +1,1 @@
-webpackJsonp([24],{0:function(i,n,t){"use strict";t(28),document.querySelector("#main").innerHTML=t(53)},28:function(i,n){},53:function(i,n){i.exports="<div class=wrap> <div class=top> </div> <div class=bottom> </div> </div>"}});
+webpackJsonp([31],{0:function(i,n,t){"use strict";t(36),document.querySelector("#main").innerHTML=t(61)},36:function(i,n){},61:function(i,n){i.exports="<div class=wrap> <div class=top> </div> <div class=bottom> </div> </div>"}});
