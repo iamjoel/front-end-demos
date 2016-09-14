@@ -1,1 +1,1 @@
-webpackJsonp([2],{22:function(e,o,n){"use strict";var t=n(2),c=t.extend({ready:function(){var e="Joel",o="Hello I'm "+e;console.log(o)}});e.exports=c}});
+webpackJsonp([2],{149:function(e,o,n){"use strict";var t=n(31),c=t.extend({ready:function(){var e="Joel",o="Hello I'm "+e;console.log(o)}});e.exports=c}});
