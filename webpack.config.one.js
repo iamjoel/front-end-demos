@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'es6-test'
+const DEMO_FOLD_NAME = 'es6'
 
 var path = require('path')
 var srcPrefix = './demos/'

@@ -23,6 +23,14 @@ routes['/promise'] = {
   }
 }
 
+routes['/arrow-function'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./arrow-function/index.js'))
+    })
+  }
+}
+
 router.map(routes)
 router.start(Vue.extend({
   template: require('./index.html')
