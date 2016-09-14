@@ -78,6 +78,22 @@ routes['/promise'] = {
   }
 }
 
+routes['/proxy'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/proxy.js'))
+    })
+  }
+}
+
+routes['/generator'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/generator.js'))
+    })
+  }
+}
+
 router.map(routes)
 router.start(Vue.extend({
   template: require('./index.html')
