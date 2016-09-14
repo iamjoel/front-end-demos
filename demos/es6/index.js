@@ -6,19 +6,18 @@ var router = new VueRouter({
 })
 
 var routes = {}
-
-routes['/template-str'] = {
+routes['/let-and-const'] = {
   component (resolve) {
     require.ensure([], function (require) {
-      resolve(require('./template-str/index.js'))
+      resolve(require('./demos/let-and-const.js'))
     })
   }
 }
 
-routes['/promise'] = {
+routes['/template-str'] = {
   component (resolve) {
     require.ensure([], function (require) {
-      resolve(require('./promise/index.js'))
+      resolve(require('./demos/template-str.js'))
     })
   }
 }
@@ -26,7 +25,55 @@ routes['/promise'] = {
 routes['/arrow-function'] = {
   component (resolve) {
     require.ensure([], function (require) {
-      resolve(require('./arrow-function/index.js'))
+      resolve(require('./demos/arrow-function.js'))
+    })
+  }
+}
+
+routes['/rest-parameters-and-defaults'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/rest-parameters-and-defaults.js'))
+    })
+  }
+}
+
+routes['/destructing'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/destructing.js'))
+    })
+  }
+}
+
+routes['/for-of'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/for-of.js'))
+    })
+  }
+}
+
+routes['/iterator'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/iterator.js'))
+    })
+  }
+}
+
+routes['/module'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/module.js'))
+    })
+  }
+}
+
+routes['/promise'] = {
+  component (resolve) {
+    require.ensure([], function (require) {
+      resolve(require('./demos/promise.js'))
     })
   }
 }
