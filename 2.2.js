@@ -1,1 +1,1 @@
-webpackJsonp([2],{149:function(e,o,n){"use strict";var t=n(31),c=t.extend({ready:function(){var e="Joel",o="Hello I'm "+e;console.log(o)}});e.exports=c}});
+webpackJsonp([2],{181:function(e,r,n){"use strict";var t=n(12);t.filter("removeAlpha",function(e){return e.replace(/[a-zA-Z]/g,"")});var a=t.extend({template:n(420),data:function(){return{name:"Joel007"}},filters:{removeNumber:function(e){return e.replace(/\d/g,"")}}});e.exports=a},420:function(e,r){e.exports="<div class=filter-wrap> {{name}} <br> {{name| removeNumber}} <br> {{name| removeAlpha}} </div>"}});

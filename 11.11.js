@@ -1,1 +1,1 @@
-webpackJsonp([11],{139:function(o,n){"use strict";var c=function(o){var n=this;this.name=o,setTimeout(function(){console.log(n.name)})},e=[1,2,3];console.log(e.map(function(o){return 2*o})),e.forEach(function(o,n){return console.log(o,n)}),e.forEach(function(o,n){o=3*o,console.log(o,n)}),console.log("----this---- 的测试"),new c("Tiger")}});
+webpackJsonp([11],{146:function(o,l){"use strict";function n(){var o,l,n="hello outter~";console.log(n),console.log(o),console.log(l)}n();var c=10;console.log(c)}});
