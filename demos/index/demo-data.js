@@ -79,6 +79,10 @@ var data = [{
   loc: 'click-btn-loading',
   tags: [tags.VUE, tags.EFFECT]
 }, {
+  name: 'vue demos',
+  loc: 'vue',
+  tags: [tags.VUE]
+}, {
   name: '购物',
   loc: 'shopping-cart'
 }, {

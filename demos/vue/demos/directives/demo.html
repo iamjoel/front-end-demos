@@ -1,0 +1,30 @@
+<!-- v-if and v-show start-->
+<div class="if-wrap">
+  <label>Is Joel Cool:</label>
+  <input type="checkbox" v-model="isCool">
+  <div v-if="isCool">Joel is so cool~</div>
+  <div v-show="isCool">Yes~</div>
+  <template v-if="isCool">
+    <p>He readed a lot!</p>
+    <p>He coding a lot!</p>
+  </template>
+  <!-- template 元素是不会显示的-->
+  <div v-show="isCool">
+    <p>+1</p>
+    <p>+1</p>
+  </div>
+</div>
+<!-- v-if and v-show end-->
+<!-- v-for start-->
+<ul class="for-wrap">
+  <li v-for="item in items">
+    <span>{{item.name}}</span>
+    <div>
+      <label for="">编辑</label>
+      <input type="checkbox" v-model="item.isEditing">
+      <br>
+      <input type="text" v-model="item.name" v-show="item.isEditing">
+    </div>
+  </li>
+</ul>
+<!-- v-for end-->

@@ -1,0 +1,17 @@
+<div class="my-component-wrap">
+  <input type="text" v-model="sth"> {{parMsg}}
+  <!-- 自定义组件1 -->
+  <my-component msg="some msg!" :changable-msg="sth" :can-change-parent-msg.sync="parMsg"></my-component>
+  <!-- 自定义组件2 -->
+  <my-component2></my-component2>
+  <table v-if="false">
+    <tr is="my-component"></tr>
+  </table>
+  <hr>
+  <h2>异步组件</h2>
+  <async-component></async-component>
+</div>
+<script type="text/x-template" id="c2">
+  <h2> tempalte~</h2>
+  <p>hahaha</p>
+</script>
