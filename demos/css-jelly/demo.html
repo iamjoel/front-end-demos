@@ -1,0 +1,27 @@
+<a name="top">
+</a>
+<div class="demo">
+    <h2>果冻效果</h2>
+    <p>果冻特效源自此网站 <a href="http://bouncejs.com/">点这里</a>，但是官方示例会改变初始的方块体积，设值需要技巧！</p>
+    <p>果冻效果分为长宽两个尺寸的变化，0.8*1.25=1，可以自行找到规律。下面是设值示例：</p>
+    <h3>scale #1</h3>
+    <ul>
+        <li>type: scale</li>
+        <li>width: from 0.8 to 1.25</li>
+        <li>height: from 1.25 to 0.8</li>
+        <li>easing: bounce</li>
+    </ul>
+    <h3>scale #2</h3>
+    <ul>
+        <li>type: scale</li>
+        <li>width: from 1.25 to 0.8</li>
+        <li>height: from 0.8 to 1.25</li>
+        <li>easing: bounce</li>
+    </ul>
+    <div class="playgroundBox">
+        <button id="jellyGo">点我抖动</button>
+        <p>参数设置：</p>
+        <div class="playground" id="playground"></div>
+    </div>
+</div>
+
