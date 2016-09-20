@@ -56,6 +56,9 @@ $main-color: #A1CF5F;
       line-height: 1.2;
       text-decoration: none;
       color: #333;
+      &:hover {
+        color: $main-color;;
+      }
       &:before {
         content: "";
         position: absolute;
@@ -63,14 +66,14 @@ $main-color: #A1CF5F;
         height: 2px;
         bottom: 0;
         left: 0;
+        visibility: visible;
+        transform: scaleX(1);
         background-color: $main-color;
-        visibility: hidden;
-        transform: scaleX(0);
         transition:  all 0.3s ease-in-out 0s;
       }
       &:hover:before {
-        visibility: visible;
-        transform: scaleX(1);
+        visibility: hidden;
+        transform: scaleX(0);
       }
     }
   }
