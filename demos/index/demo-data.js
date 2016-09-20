@@ -56,8 +56,8 @@ var data = [{
   loc: 'dnd-and-sortable',
   tags: [tags.LEANRN_DEMO, tags.HTML5]
 }, {
-  name: 'Promise',
-  loc: 'promise',
+  name: 'ES6',
+  loc: 'es6',
   tags: [tags.ES6]
 }, {
   name: '以动画的形式，经过若个点，移动到指定位置',
@@ -78,6 +78,10 @@ var data = [{
   name: '按钮点击后，显示 Loading',
   loc: 'click-btn-loading',
   tags: [tags.VUE, tags.EFFECT]
+}, {
+  name: 'vue demos',
+  loc: 'vue',
+  tags: [tags.VUE]
 }, {
   name: '购物',
   loc: 'shopping-cart'

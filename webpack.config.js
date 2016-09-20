@@ -86,7 +86,7 @@ var init = (webpackConfig) => {
 
 var addConfig = (demoFolderName, hasCSS) => {
   var entry = {}
-  entry[demoFolderName] = `${srcPrefix}${demoFolderName}/loader.js`
+  entry[demoFolderName] = ['babel-polyfill', `${srcPrefix}${demoFolderName}/loader.js`]
   var jsArr = ['vendors.js'] // TODO
   jsArr.push(`${demoFolderName}.js`)
   var cssArr = [`${demoFolderName}.css`]

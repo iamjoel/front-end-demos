@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'flip'
+const DEMO_FOLD_NAME = 'vue'
 
 var path = require('path')
 var srcPrefix = './demos/'

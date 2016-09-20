@@ -1,0 +1,20 @@
+<div id="app">
+  <h2>ES6 demos</h2>
+  <p><small>输出见控制台</small></p>
+  <ul class="nav">
+    <li v-link="{ path: '/let-and-const', activeClass: 'nav__item--active' }" class="nav__item">块作用域变量和常量</li>
+    <li v-link="{ path: '/template-str', activeClass: 'nav__item--active' }" class="nav__item">模板字符串</li>
+    <li v-link="{ path: '/arrow-function', activeClass: 'nav__item--active' }" class="nav__item">箭头函数</li>
+    <li v-link="{ path: '/rest-parameters-and-defaults', activeClass: 'nav__item--active' }" class="nav__item">不定参数和默认参数</li>
+    <li v-link="{ path: '/destructing', activeClass: 'nav__item--active' }" class="nav__item">解构</li>
+    <li v-link="{ path: '/for-of', activeClass: 'nav__item--active' }" class="nav__item">for-of</li>
+    <li v-link="{ path: '/iterator', activeClass: 'nav__item--active' }" class="nav__item">迭代器</li>
+    <li v-link="{ path: '/module', activeClass: 'nav__item--active' }" class="nav__item">模块</li>
+    <li v-link="{ path: '/promise', activeClass: 'nav__item--active' }" class="nav__item">Promise</li>
+    <li v-link="{ path: '/proxy', activeClass: 'nav__item--active' }" class="nav__item">代理</li>
+    <li v-link="{ path: '/generator', activeClass: 'nav__item--active' }" class="nav__item">迭代器</li>
+  </ul>
+  <div class="content">
+    <router-view></router-view>
+  </div>
+</div>
