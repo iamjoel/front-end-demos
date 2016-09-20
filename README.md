@@ -72,3 +72,7 @@ Demo的 HTML 内容
 本项目的 JavaScript 的代码规范是在 [JavaScript Standard Style](http://standardjs.com/index.html) 的基础上做的小修改。
 
 Sublime 上有对应的格式化插件 [Standard Format](https://packagecontrol.io/packages/StandardFormat)。
+
+## 贡献者
+* [xiangsongtao](https://github.com/xiangsongtao)
+* [cold-coder](https://github.com/cold-coder)
