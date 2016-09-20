@@ -100,6 +100,10 @@ var data = [{
   name: '翻转效果',
   loc: 'flip',
   tags: [tags.EFFECT]
+}, {
+  name: '果冻效果',
+  loc: 'css-jelly',
+  tags: [tags.EFFECT]
 }]
 
 // CSS 图形 TODO
