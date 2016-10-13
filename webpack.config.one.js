@@ -1,4 +1,4 @@
-const DEMO_FOLD_NAME = 'vue'
+const DEMO_FOLD_NAME = 'flex'
 
 var path = require('path')
 var srcPrefix = './demos/'
