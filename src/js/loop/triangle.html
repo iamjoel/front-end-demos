@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>打印三角</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+</head>
+<body>
+  console.log 打印出如下形状的三角
+<pre>
+      *
+     ***
+    ******
+   ********
+  **********
+ ************
+**************
+</pre>
+<script>
+  drawTriangle(7)
+
+  function drawTriangle(row) {
+    var centerColIndex = row - 1
+    var res = []
+    for(var rowIndex = 0; rowIndex < row; rowIndex++) {
+      let left = []
+      let right = []
+      for(var colIndex = 0; colIndex < 2 * row; colIndex++) {
+        if(colIndex === centerColIndex) continue
+        if(colIndex < centerColIndex - rowIndex) {
+          left.push(' ')
+        } else if(colIndex < centerColIndex){
+          left.push('*')
+        } else if(colIndex < centerColIndex + rowIndex + 1){
+          right.push('*')
+        } else {
+          right.push(' ')
+        }
+      }
+      left = left.join('')
+      right = right.join('')
+      res.push(`${left}*${right}`)
+    }
+    console.log(res.join('\n'))
+  }
+</script>
+</body>
+</html>

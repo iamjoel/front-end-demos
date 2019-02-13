@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>九九乘法表</title>
+</head>
+<body>
+  用 console.log 打印 99 乘法表，
+  <pre>
+1*1=1
+1*2=2  2*2=4
+....
+1*9=9  ...  9*9=81
+  </pre>
+  <script>
+    drawTable(9)
+    function drawTable(row) {
+      var res = []
+      for(var rowIndex = 1; rowIndex <= row; rowIndex++) {
+        let lineContent = []
+        for(var colIndex = 1; colIndex <= rowIndex; colIndex++) {
+          lineContent.push(`${colIndex}*${rowIndex}=${rowIndex * colIndex}`)
+        }
+        res.push(lineContent.join('  '))
+      }
+      console.log(res.join('\n'))
+    }
+  </script>
+</body>
+</html>
