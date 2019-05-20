@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h2>Vue demos</h2>
+    <p><small>输出见控制台</small></p>
+    <ul class="nav">
+      <li v-link="{ path: '/computed-attr', activeClass: 'nav__item--active' }" class="nav__item">计算属性</li>
+      <li v-link="{ path: '/directives', activeClass: 'nav__item--active' }" class="nav__item">指令</li>
+      <li v-link="{ path: '/form', activeClass: 'nav__item--active' }" class="nav__item">表单</li>
+      <li v-link="{ path: '/filter', activeClass: 'nav__item--active' }" class="nav__item">过滤器</li>
+      <li v-link="{ path: '/componet', activeClass: 'nav__item--active' }" class="nav__item">组件</li>
+      
+    </ul>
+    <div class="content">
+      <router-view></router-view>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-router"></script>
+  <script src="index.js"></script>
+</body>
+</html>
+

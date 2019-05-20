@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Playground</title>
+  <style>
+    /*$font-monospace: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;*/
+
+body {
+  margin: 0;
+  background-color: #0c1021;
+  font-size: 14px;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #fff;
+}
+
+.css {
+  font: 14px/20px Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;;
+  color: #fff;
+}
+
+.selector {
+  color: #ff6400;
+}
+
+.bracket {}
+
+.rule {
+  text-indent: 2em;
+}
+
+.property {
+  color: #8da6ce;
+}
+
+.value {
+  color: #61ce3c;
+}
+
+.editable {
+  position: relative;
+  margin-right: 5px;
+  font-size: 0;
+  color: #d8fa3c;
+  border-bottom: 1px dotted #808080;
+  padding-bottom: 1px;
+}
+
+.comment{
+  margin-left: 10px;
+  color: rgba(0,136,255,.3);
+}
+
+.editable .editable-text,
+.editable .editable-value {
+  font-size: 14px;
+}
+
+.editable .editable-value {
+  display: none;
+}
+
+.editable.edit .editable-text{
+  visibility: hidden;
+}
+.editable.edit .editable-value {
+  position: absolute;
+  display: inline;
+  background: none;
+  border: 0;
+  color: #fff;
+  left: -1px;
+  min-width: 2em;
+  outline: 0;
+  padding: 0;
+  width: 200%;
+}
+.editable.edit .editable-value[type=color]{
+    width: 58px;
+    left: -2px;
+}
+
+.target {
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #fff;
+  transition: all .5s ease-in-out;
+}
+
+  </style>
+</head>
+<body>
+  <style id="target-style"></style>
+<!-- Inspired by http://css3please.com/ -->
+<div class="container">
+  <h1 class="title">CSS Playground</h1>
+  <div class="css">
+    <span class="selector">.target</span><span class="bracket">{</span>
+    <div class="rule">
+      <span class="property">border</span>:
+      <span class="value">
+          <span class="editable">
+            <span class="editable-text">5px</span>
+      <input type="text" class="editable-value">
+      </span> solid
+      <span class="editable">
+            <span class="editable-text">#800080</span>
+      <input type="color" class="editable-value">
+      </span>
+      </span>;<span class="comment">/* 边框 */</span>
+    </div>
+    <div class="rule">
+      <span class="property">border-radius</span>:
+      <span class="value">
+          <span class="editable">
+            <span class="editable-text">15%</span>
+      <input type="text" class="editable-value">
+      </span>
+      </span>;<span class="comment">/* 圆角 */</span>
+    </div>
+    <div class="rule">
+      <span class="property">background</span>:
+      <span class="value">
+          <span class="editable">
+            <span class="editable-text">#ff8000</span>
+      <input type="color" class="editable-value">
+      </span>
+      </span>;<span class="comment">/* 背景 */</span>
+    </div>
+    <div class="rule">
+      <span class="property">color</span>:
+      <span class="value">
+          <span class="editable">
+            <span class="editable-text">#ffffff</span>
+      <input type="color" class="editable-value">
+      </span>
+      </span>;<span class="comment">/* 字的颜色 */</span>
+    </div>
+    <span class="bracket">}</span>
+  </div>
+</div>
+<div class="target">Taget</div>
+<script src="https://unpkg.com/jquery@3.2.1"></script>
+<script>
+  $(document).ready(() => {
+  // 新增属性,删除属性,值的 autocomplate
+  var init = () => {
+    // 输入框同步显示的文本的值
+    $('.editable-text').each(function () {
+      var $this = $(this)
+      var value = $this.text()
+      // if(tol)
+      $this.next('.editable-value').val(value)
+    })
+    registerEvent()
+    render()
+  }
+  var render = () => {
+    var $targetStyle = $('#target-style')
+    var style =
+    `.target{
+        ${gatherStyleRules()}
+      }`
+    $targetStyle.html(style)
+  }
+  var gatherStyleRules = () => {
+    var styleArr = []
+    $('.rule').each(function () {
+      var $this = $(this)
+      var property = $this.find('.property').text()
+      var value = $this.find('.value')
+          .text()
+          .replace(/( )+/g, ' ')
+          .replace(/\n/g, '') + ''
+      styleArr.push(`${property}:${value};`)
+    })
+    return styleArr.join('\n')
+  }
+
+  var registerEvent = () => {
+    $('.editable').click(function () {
+      var $this = $(this)
+      $this.addClass('edit')
+    })
+    var $editableInput = $('.editable-value')
+    $editableInput.filter('[type=text]').blur(function () {
+      $(this).closest('.editable').removeClass('edit')
+    }).keyup(function (event) {
+      var $this = $(this)
+      var $editText = $this.prev('.editable-text')
+      event.preventDefault()
+      // 上 或 下
+      if (event.which === 38 || event.which === 40) {
+        var addNum = event.which === 38 ? 1 : -1
+        var vaule = tools.addNumberVal($this.val(), addNum)
+        $this.val(vaule)
+        $editText.text(vaule)
+      } else {
+        $editText.text($this.val())
+      }
+      render()
+    })
+
+    $editableInput.filter('[type=color]').change(function () {
+      var $this = $(this)
+      var value = $this.val()
+      var $editText = $this.prev('.editable-text')
+      $editText.text(value)
+      render()
+      $this.closest('.editable').removeClass('edit')
+    })
+  }
+
+  var tools = {
+    addNumberVal: (numVal, addVal) => {
+      if (!isNaN(numVal)) {
+        return numVal
+      }
+      var num = (numVal + '').indexOf('.') > -1 ? parseFloat(numVal) : parseInt(numVal)
+      num = num + addVal
+      var unit = /[a-zA-Z%]+/.exec(numVal)[0]
+      return num + unit
+    }
+  }
+
+  init()
+})
+
+</script>
+</body>
+</html>

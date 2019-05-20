@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>按钮点击后，显示 Loading</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+  <btn-click-loading @btn-clicked="onClick(1)" :btn-id="btn1.id" :is-loading="btn1.isLoading">
+  </btn-click-loading>
+  <btn-click-loading @btn-clicked="onClick(2)" :btn-id="btn2.id" :is-loading="btn2.isLoading">
+    <span slot="text">点我点我</span>
+  </btn-click-loading>
+</div>
+<script src="https://unpkg.com/vue"></script>
+<script src="index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用CSS来找出两张图的差异</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>原图</h2>
+  <div class="tc-wrap">
+    <img src="spot_the_difference1.png">
+    <img src="spot_the_difference2.png">
+  </div>
+  <h2>用 filter 来做</h2>
+  <div class="wrap wrap--filter">
+    <img src="spot_the_difference1.png" alt="" class="img">
+    <img src="spot_the_difference2.png" alt="" class="img img--cover">
+  </div>
+  <h2>用 mix-blend-mode 来做</h2>
+  <div class="wrap wrap--mix-blend-mode">
+    <img src="spot_the_difference1.png" alt="" class="img">
+    <img src="spot_the_difference2.png" alt="" class="img img--cover">
+  </div>
+</body>
+</html>
+
